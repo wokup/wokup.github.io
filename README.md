@@ -1,16 +1,28 @@
-## Hi there 👋
+# WokUp Animated Menu
 
-<!--
-**wokup/wokup** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Premium animated restaurant menu hosted on GitHub Pages.
 
-Here are some ideas to get you started:
+## Features
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+- Animated food cards
+- WhatsApp ordering
+- Mobile responsive
+- Modern Chinese restaurant design
+- GitHub Pages compatible
+
+## Deployment
+
+1. Upload files to GitHub repo
+2. Go to Settings → Pages
+3. Enable GitHub Pages
+4. Select main branch
+
+Website goes live instantly.
+
+## Customization
+
+Replace:
+- images inside `/assets`
+- WhatsApp number
+- prices
+- menu items
