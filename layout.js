@@ -78,7 +78,7 @@ function injectFooter() {
           <li><a href="menu.html#fried">Fried Specials</a></li>
           <li><a href="menu.html#noodles">Noodles & Pasta</a></li>
           <li><a href="menu.html#rice">Rice Delights</a></li>
-          <li><a href="menu.html#chefs">Chef's Specials</a></li>
+          <li><a href="menu.html#chefs">Gravies</a></li>
         </ul>
       </div>
 
@@ -98,7 +98,7 @@ function injectFooter() {
         </div>
         <div class="footer-contact-item">
           <i class="fas fa-clock"></i>
-          <span>Daily: 12:00 PM – 12:00 AM</span>
+          <span>Daily: 04:00 PM – 02:00 AM</span>
         </div>
       </div>
     </div>
