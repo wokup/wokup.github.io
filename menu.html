@@ -2,306 +2,146 @@
 <html lang="en">
 <head>
   <link rel="icon" type="image/png" href="assets/logo.png">
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Full Menu — WokUp Chinese Restaurant</title>
   <link rel="stylesheet" href="shared.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
   <style>
-
     body { padding-top: 70px; }
 
-    /* PAGE HEADER */
     .menu-page-header {
-      background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.92)),
+      background: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.92)),
                   url('assets/rice.jpg') center/cover fixed;
-      padding: 55px 8% 50px;
-      text-align: center;
+      padding: 55px 8% 50px; text-align: center;
     }
+    .menu-page-header h1 { font-size: 3.2rem; color: var(--yellow); letter-spacing: 2px; }
+    .menu-page-header p  { color: var(--text-muted); margin-top: 10px; font-size: 1rem; }
 
-    .menu-page-header h1 {
-      font-size: 3.2rem;
-      color: #ffcc00;
-      letter-spacing: 2px;
-    }
-
-    .menu-page-header p {
-      color: #aaa;
-      margin-top: 10px;
-      font-size: 1rem;
-    }
-
-    /* CATEGORY TABS */
+    /* STICKY TABS */
     .cat-tabs-wrap {
-      position: sticky;
-      top: 70px;
-      z-index: 100;
-      background: rgba(15,15,15,0.97);
-      border-bottom: 1px solid rgba(255,204,0,0.12);
-      padding: 0 8%;
+      position: sticky; top: 70px; z-index: 100;
+      background: var(--nav-bg); backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,204,0,0.12); padding: 0 8%;
     }
-
-    .cat-tabs {
-      display: flex;
-      gap: 0;
-      overflow-x: auto;
-      scrollbar-width: none;
-    }
-
+    .cat-tabs { display: flex; overflow-x: auto; scrollbar-width: none; }
     .cat-tabs::-webkit-scrollbar { display: none; }
-
     .cat-tab {
-      padding: 16px 22px;
-      color: #888;
-      cursor: pointer;
-      white-space: nowrap;
-      font-size: 0.88rem;
-      font-weight: bold;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      border-bottom: 2px solid transparent;
-      transition: 0.3s;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 7px;
+      padding: 16px 22px; color: var(--text-dim); cursor: pointer;
+      white-space: nowrap; font-size: 0.88rem; font-weight: bold;
+      letter-spacing: 0.5px; text-transform: uppercase;
+      border-bottom: 2px solid transparent; transition: 0.3s;
+      text-decoration: none; display: flex; align-items: center; gap: 7px;
     }
+    .cat-tab:hover { color: var(--yellow); }
+    .cat-tab.active { color: var(--yellow); border-bottom-color: var(--yellow); }
 
-    .cat-tab:hover {
-      color: #ffcc00;
-    }
-
-    .cat-tab.active {
-      color: #ffcc00;
-      border-bottom-color: #ffcc00;
-    }
-
-    /* MENU SECTIONS */
-    .menu-body {
-      padding: 60px 8%;
-    }
-
-    .menu-category {
-      margin-bottom: 70px;
-      scroll-margin-top: 130px;
-    }
+    /* MENU BODY */
+    .menu-body { padding: 60px 8%; }
+    .menu-category { margin-bottom: 70px; scroll-margin-top: 130px; }
 
     .category-header {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      margin-bottom: 35px;
-      padding-bottom: 18px;
+      display: flex; align-items: center; gap: 15px;
+      margin-bottom: 35px; padding-bottom: 18px;
       border-bottom: 1px solid rgba(255,204,0,0.15);
     }
-
     .category-icon {
-      font-size: 1.8rem;
-      color: #ffcc00;
-      width: 48px;
-      height: 48px;
-      background: rgba(255,204,0,0.08);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      font-size: 1.8rem; color: var(--yellow);
+      width: 48px; height: 48px;
+      background: rgba(255,204,0,0.08); border-radius: 12px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
     }
+    .category-header h2 { font-size: 1.9rem; color: var(--yellow); letter-spacing: 1px; }
+    .category-header p  { color: var(--text-faint); font-size: 0.85rem; margin-top: 3px; }
 
-    .category-header h2 {
-      font-size: 1.9rem;
-      color: #ffcc00;
-      letter-spacing: 1px;
-    }
-
-    .category-header p {
-      color: #666;
-      font-size: 0.85rem;
-      margin-top: 3px;
-    }
-
-    /* MENU ITEMS LIST */
-    .menu-items {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
+    /* MENU ITEM ROW */
+    .menu-items { display: flex; flex-direction: column; gap: 16px; }
     .menu-item {
-      background: #1a1a1a;
-      border-radius: 18px;
-      padding: 22px 28px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      border: 1px solid rgba(255,255,255,0.04);
-      transition: 0.3s;
+      background: var(--card); border-radius: 18px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 20px; border: 1px solid var(--border-card); transition: 0.3s; overflow: hidden;
     }
+    .menu-item:hover { border-color: rgba(255,204,0,0.25); background: var(--card-hover); }
 
-    .menu-item:hover {
-      border-color: rgba(255,204,0,0.2);
-      background: #1e1e1e;
-    }
+    /* Item image (shown when available) */
+    .item-img-wrap { width: 110px; height: 90px; flex-shrink: 0; overflow: hidden; }
+    .item-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .item-img-wrap.no-img { display: none; }
 
-    .item-info {
-      flex: 1;
-    }
+    .item-info { flex: 1; padding: 22px 0 22px 24px; }
+    .item-info.no-img-pad { padding-left: 24px; }
+    .item-info h3 { font-size: 1.05rem; margin-bottom: 5px; color: var(--body-color); }
+    .item-info p  { color: var(--text-dim); font-size: 0.82rem; line-height: 1.5; }
 
-    .item-info h3 {
-      font-size: 1.1rem;
-      margin-bottom: 5px;
-      color: white;
-    }
-
-    .item-info p {
-      color: #777;
-      font-size: 0.83rem;
-      line-height: 1.5;
-    }
-
-    /* VARIATION SELECTOR */
     .item-right {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 12px;
-      min-width: 180px;
+      display: flex; flex-direction: column; align-items: flex-end;
+      gap: 10px; min-width: 190px; padding: 22px 24px 22px 0;
     }
+    .single-price { font-size: 1.2rem; color: var(--yellow); font-weight: bold; }
+    .per-pc-note  { font-size: 0.75rem; color: var(--text-faint); text-align: right; }
 
-    /* For single-price items */
-    .single-price {
-      font-size: 1.25rem;
-      color: #ffcc00;
-      font-weight: bold;
-    }
-
-    /* Variation toggle buttons */
-    .variations {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
+    .variations { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
     .var-btn {
-      padding: 6px 14px;
-      border-radius: 30px;
+      padding: 6px 13px; border-radius: 30px;
       border: 1.5px solid rgba(255,204,0,0.3);
-      background: transparent;
-      color: #aaa;
-      font-size: 0.8rem;
-      cursor: pointer;
-      transition: 0.25s;
-      white-space: nowrap;
+      background: transparent; color: var(--text-muted);
+      font-size: 0.78rem; cursor: pointer; transition: 0.25s; white-space: nowrap;
     }
+    .var-btn:hover  { border-color: var(--yellow); color: var(--yellow); }
+    .var-btn.selected { background: var(--yellow); color: #000; border-color: var(--yellow); font-weight: bold; }
 
-    .var-btn:hover {
-      border-color: #ffcc00;
-      color: #ffcc00;
-    }
-
-    .var-btn.selected {
-      background: #ffcc00;
-      color: #000;
-      border-color: #ffcc00;
-      font-weight: bold;
-    }
-
-    .selected-price {
-      font-size: 1.2rem;
-      color: #ffcc00;
-      font-weight: bold;
-      min-height: 1.4rem;
-    }
-
-    .order-row {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
+    .selected-price { font-size: 1.15rem; color: var(--yellow); font-weight: bold; min-height: 1.4rem; }
+    .order-row { display: flex; align-items: center; gap: 12px; }
 
     .wa-order-btn {
-      background: #25D366;
-      color: white;
-      padding: 10px 18px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 0.85rem;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      transition: 0.3s;
-      white-space: nowrap;
+      background: var(--green); color: white;
+      padding: 10px 16px; border-radius: 50px;
+      text-decoration: none; font-weight: bold; font-size: 0.82rem;
+      display: flex; align-items: center; gap: 6px; transition: 0.3s; white-space: nowrap;
     }
-
     .wa-order-btn:hover { transform: scale(1.05); }
 
-    /* DRUMSTICK special note */
-    .per-pc-note {
-      font-size: 0.75rem;
-      color: #666;
-      text-align: right;
-    }
-
-    @media (max-width: 680px) {
-      .menu-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
-      }
-
-      .item-right {
-        width: 100%;
-        align-items: flex-start;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: center;
-        min-width: unset;
-      }
-
+    @media(max-width:680px){
+      .menu-item { flex-direction: column; align-items: flex-start; }
+      .item-img-wrap { width: 100%; height: 160px; }
+      .item-img-wrap.no-img { display: none; }
+      .item-info { padding: 16px 16px 0; }
+      .item-right { padding: 12px 16px 16px; width: 100%; align-items: flex-start; flex-direction: row; flex-wrap: wrap; justify-content: space-between; min-width: unset; }
       .variations { justify-content: flex-start; }
-
       .cat-tab { padding: 14px 14px; font-size: 0.78rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Page Header -->
   <div class="menu-page-header">
     <h1>Our Menu</h1>
     <p>Every dish made fresh, every time — order directly on WhatsApp</p>
   </div>
 
-  <!-- Category Tabs -->
   <div class="cat-tabs-wrap">
     <div class="cat-tabs">
-      <a href="#soups" class="cat-tab active"><i class="fas fa-mug-hot"></i> Soups</a>
-      <a href="#momos" class="cat-tab"><i class="fas fa-circle-dot"></i> Momos</a>
-      <a href="#fried" class="cat-tab"><i class="fas fa-drumstick-bite"></i> Fried Specials</a>
-      <a href="#noodles" class="cat-tab"><i class="fas fa-utensils"></i> Noodles & Pasta</a>
-      <a href="#rice" class="cat-tab"><i class="fas fa-bowl-rice"></i> Rice Delights</a>
-      <a href="#chefs" class="cat-tab"><i class="fas fa-star"></i> Gravies</a>
+      <a href="#soups"  class="cat-tab active"><i class="fas fa-mug-hot"></i> Soups</a>
+      <a href="#momos"  class="cat-tab"><i class="fas fa-circle-dot"></i> Momos</a>
+      <a href="#fried"  class="cat-tab"><i class="fas fa-drumstick-bite"></i> Fried Specials</a>
+      <a href="#noodles"class="cat-tab"><i class="fas fa-utensils"></i> Noodles & Pasta</a>
+      <a href="#rice"   class="cat-tab"><i class="fas fa-bowl-rice"></i> Rice Delights</a>
+      <a href="#chefs"  class="cat-tab"><i class="fas fa-star"></i> Chef's Specials</a>
     </div>
   </div>
 
-  <!-- Menu Body -->
   <div class="menu-body">
 
     <!-- SOUPS -->
     <div class="menu-category" id="soups">
       <div class="category-header">
         <div class="category-icon"><i class="fas fa-mug-hot"></i></div>
-        <div>
-          <h2>Soups</h2>
-          <p>Warm, comforting broths — the perfect start to any meal</p>
-        </div>
+        <div><h2>Soups</h2><p>Warm, comforting broths — the perfect start to any meal</p></div>
       </div>
       <div class="menu-items">
 
         <div class="menu-item" data-name="Chicken Corn Soup">
+          <div class="item-img-wrap no-img"></div>
           <div class="item-info">
             <h3>Chicken Corn Soup</h3>
             <p>A velvety, lightly thickened broth loaded with tender chicken strips and sweet corn kernels.</p>
@@ -313,17 +153,16 @@
             </div>
             <div class="order-row">
               <span class="selected-price">Rs. 495</span>
-              <a class="wa-order-btn" href="https://wa.me/923096587000?text=I%20want%20Chicken%20Corn%20Soup%20(Half)" target="_blank">
-                <i class="fab fa-whatsapp"></i> Order
-              </a>
+              <a class="wa-order-btn" href="https://wa.me/923096587000?text=I%20want%20Chicken%20Corn%20Soup%20(Half)" target="_blank"><i class="fab fa-whatsapp"></i> Order</a>
             </div>
           </div>
         </div>
 
         <div class="menu-item" data-name="Hot & Sour Soup">
+          <div class="item-img-wrap no-img"></div>
           <div class="item-info">
-            <h3>Hot & Sour Soup</h3>
-            <p>A bold, tangy broth with shredded chicken, mushrooms, and egg ribbons — perfectly balanced heat and sourness.</p>
+            <h3>Hot &amp; Sour Soup</h3>
+            <p>A bold tangy broth with shredded chicken, mushrooms, and egg ribbons — perfectly balanced heat and sourness.</p>
           </div>
           <div class="item-right">
             <div class="variations">
@@ -332,9 +171,7 @@
             </div>
             <div class="order-row">
               <span class="selected-price">Rs. 495</span>
-              <a class="wa-order-btn" href="https://wa.me/923096587000?text=I%20want%20Hot%20%26%20Sour%20Soup%20(Half)" target="_blank">
-                <i class="fab fa-whatsapp"></i> Order
-              </a>
+              <a class="wa-order-btn" href="https://wa.me/923096587000?text=I%20want%20Hot%20%26%20Sour%20Soup%20(Half)" target="_blank"><i class="fab fa-whatsapp"></i> Order</a>
             </div>
           </div>
         </div>
@@ -346,14 +183,12 @@
     <div class="menu-category" id="momos">
       <div class="category-header">
         <div class="category-icon"><i class="fas fa-circle-dot"></i></div>
-        <div>
-          <h2>Momos</h2>
-          <p>Steamed dumplings with a spicy dipping sauce — a fan favourite</p>
-        </div>
+        <div><h2>Momos</h2><p>Steamed dumplings with a spicy dipping sauce — a fan favourite</p></div>
       </div>
       <div class="menu-items">
 
         <div class="menu-item" data-name="Chicken Momos">
+          <div class="item-img-wrap"><img src="assets/momos.jpg" alt="Chicken Momos"></div>
           <div class="item-info">
             <h3>Chicken Momos</h3>
             <p>Soft, pillowy steamed dumplings packed with seasoned minced chicken, served with a fiery chilli dip.</p>
@@ -365,14 +200,13 @@
             </div>
             <div class="order-row">
               <span class="selected-price">Rs. 395</span>
-              <a class="wa-order-btn" href="https://wa.me/923096587000?text=I%20want%20Chicken%20Momos%20(6%20pcs)" target="_blank">
-                <i class="fab fa-whatsapp"></i> Order
-              </a>
+              <a class="wa-order-btn" href="https://wa.me/923096587000?text=I%20want%20Chicken%20Momos%20(6%20pcs)" target="_blank"><i class="fab fa-whatsapp"></i> Order</a>
             </div>
           </div>
         </div>
 
         <div class="menu-item" data-name="Cheese Momos">
+          <div class="item-img-wrap no-img"></div>
           <div class="item-info">
             <h3>Cheese Momos</h3>
             <p>Indulgent steamed dumplings with a gooey melted cheese filling — rich, creamy, and completely addictive.</p>
@@ -384,9 +218,7 @@
             </div>
             <div class="order-row">
               <span class="selected-price">Rs. 495</span>
-              <a class="wa-order-btn" href="https://wa.me/923096587000?text=I%20want%20Cheese%20Momos%20(6%20pcs)" target="_blank">
-                <i class="fab fa-whatsapp"></i> Order
-              </a>
+              <a class="wa-order-btn" href="https://wa.me/923096587000?text=I%20want%20Cheese%20Momos%20(6%20pcs)" target="_blank"><i class="fab fa-whatsapp"></i> Order</a>
             </div>
           </div>
         </div>
@@ -398,14 +230,12 @@
     <div class="menu-category" id="fried">
       <div class="category-header">
         <div class="category-icon"><i class="fas fa-drumstick-bite"></i></div>
-        <div>
-          <h2>Fried Specials</h2>
-          <p>Crispy, golden, and full of flavour — perfect to share</p>
-        </div>
+        <div><h2>Fried Specials</h2><p>Crispy, golden, and full of flavour — perfect to share</p></div>
       </div>
       <div class="menu-items">
 
         <div class="menu-item" data-name="Honey Glazed Wings">
+          <div class="item-img-wrap"><img src="assets/wings.jpg" alt="Honey Glazed Wings"></div>
           <div class="item-info">
             <h3>Honey Glazed Wings</h3>
             <p>Crispy fried wings tossed in a sticky sweet-garlic honey glaze — caramelised perfection.</p>
@@ -417,14 +247,13 @@
             </div>
             <div class="order-row">
               <span class="selected-price">Rs. 345</span>
-              <a class="wa-order-btn" href="https://wa.me/923096587000?text=I%20want%20Honey%20Glazed%20Wings%20(4%20pcs)" target="_blank">
-                <i class="fab fa-whatsapp"></i> Order
-              </a>
+              <a class="wa-order-btn" href="https://wa.me/923096587000?text=I%20want%20Honey%20Glazed%20Wings%20(4%20pcs)" target="_blank"><i class="fab fa-whatsapp"></i> Order</a>
             </div>
           </div>
         </div>
 
         <div class="menu-item" data-name="Spicy Wings">
+          <div class="item-img-wrap no-img"></div>
           <div class="item-info">
             <h3>Spicy Wings</h3>
             <p>Fiery, crunch-coated wings marinated in bold spices — for those who like it hot.</p>
@@ -436,27 +265,21 @@
             </div>
             <div class="order-row">
               <span class="selected-price">Rs. 345</span>
-              <a class="wa-order-btn" href="https://wa.me/923096587000?text=I%20want%20Spicy%20Wings%20(4%20pcs)" target="_blank">
-                <i class="fab fa-whatsapp"></i> Order
-              </a>
+              <a class="wa-order-btn" href="https://wa.me/923096587000?text=I%20want%20Spicy%20Wings%20(4%20pcs)" target="_blank"><i class="fab fa-whatsapp"></i> Order</a>
             </div>
           </div>
         </div>
 
         <div class="menu-item" data-name="Chicken Drumsticks">
+          <div class="item-img-wrap no-img"></div>
           <div class="item-info">
             <h3>Chicken Drumsticks</h3>
-            <p>Juicy, seasoned drumsticks with a crispy outer coat — great as a starter or side. Priced per piece.</p>
+            <p>Juicy, seasoned drumsticks with a crispy outer coat — great as a starter or side.</p>
           </div>
           <div class="item-right">
             <div class="order-row">
-              <div>
-                <span class="single-price">Rs. 190</span>
-                <div class="per-pc-note">per piece</div>
-              </div>
-              <a class="wa-order-btn" href="https://wa.me/923096587000?text=I%20want%20Chicken%20Drumsticks" target="_blank">
-                <i class="fab fa-whatsapp"></i> Order
-              </a>
+              <div><span class="single-price">Rs. 190</span><div class="per-pc-note">per piece</div></div>
+              <a class="wa-order-btn" href="https://wa.me/923096587000?text=I%20want%20Chicken%20Drumsticks" target="_blank"><i class="fab fa-whatsapp"></i> Order</a>
             </div>
           </div>
         </div>
@@ -468,29 +291,26 @@
     <div class="menu-category" id="noodles">
       <div class="category-header">
         <div class="category-icon"><i class="fas fa-utensils"></i></div>
-        <div>
-          <h2>Noodles & Pasta</h2>
-          <p>Wok-tossed noodles and creamy pastas — comfort in every bite</p>
-        </div>
+        <div><h2>Noodles &amp; Pasta</h2><p>Wok-tossed noodles and creamy pastas — comfort in every bite</p></div>
       </div>
       <div class="menu-items">
 
         <div class="menu-item" data-name="Chicken Chow Mein">
+          <div class="item-img-wrap"><img src="assets/chowmein.jpg" alt="Chicken Chow Mein"></div>
           <div class="item-info">
             <h3>Chicken Chow Mein</h3>
-            <p>Stir-fried egg noodles with tender chicken strips and crisp vegetables in a savory wok sauce.</p>
+            <p>Stir-fried egg noodles with tender chicken strips and crisp vegetables in a savoury wok sauce.</p>
           </div>
           <div class="item-right">
             <div class="order-row">
               <span class="single-price">Rs. 495</span>
-              <a class="wa-order-btn" href="https://wa.me/923096587000?text=I%20want%20Chicken%20Chow%20Mein" target="_blank">
-                <i class="fab fa-whatsapp"></i> Order
-              </a>
+              <a class="wa-order-btn" href="https://wa.me/923096587000?text=I%20want%20Chicken%20Chow%20Mein" target="_blank"><i class="fab fa-whatsapp"></i> Order</a>
             </div>
           </div>
         </div>
 
         <div class="menu-item" data-name="Vegetable Chow Mein">
+          <div class="item-img-wrap no-img"></div>
           <div class="item-info">
             <h3>Vegetable Chow Mein</h3>
             <p>Light and flavourful stir-fried noodles loaded with seasonal vegetables and aromatic seasonings.</p>
@@ -498,14 +318,13 @@
           <div class="item-right">
             <div class="order-row">
               <span class="single-price">Rs. 395</span>
-              <a class="wa-order-btn" href="https://wa.me/923096587000?text=I%20want%20Vegetable%20Chow%20Mein" target="_blank">
-                <i class="fab fa-whatsapp"></i> Order
-              </a>
+              <a class="wa-order-btn" href="https://wa.me/923096587000?text=I%20want%20Vegetable%20Chow%20Mein" target="_blank"><i class="fab fa-whatsapp"></i> Order</a>
             </div>
           </div>
         </div>
 
         <div class="menu-item" data-name="Alfredo Pasta">
+          <div class="item-img-wrap"><img src="assets/pasta.jpeg" alt="Alfredo Pasta"></div>
           <div class="item-info">
             <h3>Alfredo Pasta</h3>
             <p>Creamy, velvety white sauce pasta tossed with penne — rich, indulgent, and satisfying.</p>
@@ -513,24 +332,21 @@
           <div class="item-right">
             <div class="order-row">
               <span class="single-price">Rs. 795</span>
-              <a class="wa-order-btn" href="https://wa.me/923096587000?text=I%20want%20Alfredo%20Pasta" target="_blank">
-                <i class="fab fa-whatsapp"></i> Order
-              </a>
+              <a class="wa-order-btn" href="https://wa.me/923096587000?text=I%20want%20Alfredo%20Pasta" target="_blank"><i class="fab fa-whatsapp"></i> Order</a>
             </div>
           </div>
         </div>
 
         <div class="menu-item" data-name="Special Alfredo Pasta">
+          <div class="item-img-wrap no-img"></div>
           <div class="item-info">
             <h3>Special Alfredo Pasta</h3>
-            <p>Our upgraded Alfredo — loaded with grilled chicken, mushrooms, and a richer, creamier sauce.</p>
+            <p>Our upgraded Alfredo — loaded with chicken, cheese, and a richer, creamier sauce.</p>
           </div>
           <div class="item-right">
             <div class="order-row">
               <span class="single-price">Rs. 995</span>
-              <a class="wa-order-btn" href="https://wa.me/923096587000?text=I%20want%20Special%20Alfredo%20Pasta" target="_blank">
-                <i class="fab fa-whatsapp"></i> Order
-              </a>
+              <a class="wa-order-btn" href="https://wa.me/923096587000?text=I%20want%20Special%20Alfredo%20Pasta" target="_blank"><i class="fab fa-whatsapp"></i> Order</a>
             </div>
           </div>
         </div>
@@ -542,14 +358,12 @@
     <div class="menu-category" id="rice">
       <div class="category-header">
         <div class="category-icon"><i class="fas fa-bowl-rice"></i></div>
-        <div>
-          <h2>Rice Delights</h2>
-          <p>Wok-fried and aromatic rice dishes — a meal on their own</p>
-        </div>
+        <div><h2>Rice Delights</h2><p>Wok-fried and aromatic rice dishes — a meal on their own</p></div>
       </div>
       <div class="menu-items">
 
         <div class="menu-item" data-name="Chicken Fried Rice">
+          <div class="item-img-wrap"><img src="assets/rice.jpg" alt="Chicken Fried Rice"></div>
           <div class="item-info">
             <h3>Chicken Fried Rice</h3>
             <p>Classic wok-fried rice with diced chicken, scrambled egg, and vegetables in a light soy glaze.</p>
@@ -561,14 +375,13 @@
             </div>
             <div class="order-row">
               <span class="selected-price">Rs. 545</span>
-              <a class="wa-order-btn" href="https://wa.me/923096587000?text=I%20want%20Chicken%20Fried%20Rice%20(Half)" target="_blank">
-                <i class="fab fa-whatsapp"></i> Order
-              </a>
+              <a class="wa-order-btn" href="https://wa.me/923096587000?text=I%20want%20Chicken%20Fried%20Rice%20(Half)" target="_blank"><i class="fab fa-whatsapp"></i> Order</a>
             </div>
           </div>
         </div>
 
         <div class="menu-item" data-name="Egg Fried Rice">
+          <div class="item-img-wrap no-img"></div>
           <div class="item-info">
             <h3>Egg Fried Rice</h3>
             <p>Light and fluffy fried rice with silky scrambled egg — the perfect simple side or standalone dish.</p>
@@ -580,17 +393,16 @@
             </div>
             <div class="order-row">
               <span class="selected-price">Rs. 495</span>
-              <a class="wa-order-btn" href="https://wa.me/923096587000?text=I%20want%20Egg%20Fried%20Rice%20(Half)" target="_blank">
-                <i class="fab fa-whatsapp"></i> Order
-              </a>
+              <a class="wa-order-btn" href="https://wa.me/923096587000?text=I%20want%20Egg%20Fried%20Rice%20(Half)" target="_blank"><i class="fab fa-whatsapp"></i> Order</a>
             </div>
           </div>
         </div>
 
         <div class="menu-item" data-name="Chicken Masala Rice">
+          <div class="item-img-wrap no-img"></div>
           <div class="item-info">
             <h3>Chicken Masala Rice</h3>
-            <p>Bold, spiced rice with aromatic masala-marinated chicken pieces — a fusion of Eastern warmth and Chinese style.</p>
+            <p>Bold, spiced rice with aromatic masala-marinated chicken — a fusion of Eastern warmth and Chinese style.</p>
           </div>
           <div class="item-right">
             <div class="variations">
@@ -599,14 +411,13 @@
             </div>
             <div class="order-row">
               <span class="selected-price">Rs. 545</span>
-              <a class="wa-order-btn" href="https://wa.me/923096587000?text=I%20want%20Chicken%20Masala%20Rice%20(Half)" target="_blank">
-                <i class="fab fa-whatsapp"></i> Order
-              </a>
+              <a class="wa-order-btn" href="https://wa.me/923096587000?text=I%20want%20Chicken%20Masala%20Rice%20(Half)" target="_blank"><i class="fab fa-whatsapp"></i> Order</a>
             </div>
           </div>
         </div>
 
         <div class="menu-item" data-name="Vegetable Rice">
+          <div class="item-img-wrap no-img"></div>
           <div class="item-info">
             <h3>Vegetable Rice</h3>
             <p>Fragrant wok-fried rice tossed with seasonal vegetables and light seasoning — simple and wholesome.</p>
@@ -618,9 +429,7 @@
             </div>
             <div class="order-row">
               <span class="selected-price">Rs. 445</span>
-              <a class="wa-order-btn" href="https://wa.me/923096587000?text=I%20want%20Vegetable%20Rice%20(Half)" target="_blank">
-                <i class="fab fa-whatsapp"></i> Order
-              </a>
+              <a class="wa-order-btn" href="https://wa.me/923096587000?text=I%20want%20Vegetable%20Rice%20(Half)" target="_blank"><i class="fab fa-whatsapp"></i> Order</a>
             </div>
           </div>
         </div>
@@ -628,18 +437,16 @@
       </div>
     </div>
 
-    <!-- Gravies -->
+    <!-- CHEF'S SPECIALS -->
     <div class="menu-category" id="chefs">
       <div class="category-header">
         <div class="category-icon"><i class="fas fa-star"></i></div>
-        <div>
-          <h2>Gravies</h2>
-          <p>Our signature dishes — crafted with the finest sauces and boldest flavours</p>
-        </div>
+        <div><h2>Chef's Specials</h2><p>Our signature dishes — crafted with the finest sauces and boldest flavours</p></div>
       </div>
       <div class="menu-items">
 
         <div class="menu-item" data-name="Chicken Manchurian">
+          <div class="item-img-wrap"><img src="assets/manch.jpg" alt="Chicken Manchurian"></div>
           <div class="item-info">
             <h3>Chicken Manchurian</h3>
             <p>Crispy fried chicken balls tossed in a rich, tangy Manchurian sauce with ginger, garlic, and spring onions.</p>
@@ -651,14 +458,13 @@
             </div>
             <div class="order-row">
               <span class="selected-price">Rs. 695</span>
-              <a class="wa-order-btn" href="https://wa.me/923096587000?text=I%20want%20Chicken%20Manchurian%20(Half)" target="_blank">
-                <i class="fab fa-whatsapp"></i> Order
-              </a>
+              <a class="wa-order-btn" href="https://wa.me/923096587000?text=I%20want%20Chicken%20Manchurian%20(Half)" target="_blank"><i class="fab fa-whatsapp"></i> Order</a>
             </div>
           </div>
         </div>
 
         <div class="menu-item" data-name="Chicken Shashlik">
+          <div class="item-img-wrap"><img src="assets/shash.jpeg" alt="Chicken Shashlik"></div>
           <div class="item-info">
             <h3>Chicken Shashlik</h3>
             <p>Grilled marinated chicken skewers with bell peppers and onions, served in a sweet-tangy shashlik gravy.</p>
@@ -670,14 +476,13 @@
             </div>
             <div class="order-row">
               <span class="selected-price">Rs. 695</span>
-              <a class="wa-order-btn" href="https://wa.me/923096587000?text=I%20want%20Chicken%20Shashlik%20(Half)" target="_blank">
-                <i class="fab fa-whatsapp"></i> Order
-              </a>
+              <a class="wa-order-btn" href="https://wa.me/923096587000?text=I%20want%20Chicken%20Shashlik%20(Half)" target="_blank"><i class="fab fa-whatsapp"></i> Order</a>
             </div>
           </div>
         </div>
 
         <div class="menu-item" data-name="Chicken Black Pepper">
+          <div class="item-img-wrap no-img"></div>
           <div class="item-info">
             <h3>Chicken Black Pepper</h3>
             <p>Tender chicken stir-fried in a bold, peppery black pepper sauce with sautéed onions and capsicum.</p>
@@ -689,14 +494,13 @@
             </div>
             <div class="order-row">
               <span class="selected-price">Rs. 695</span>
-              <a class="wa-order-btn" href="https://wa.me/923096587000?text=I%20want%20Chicken%20Black%20Pepper%20(Half)" target="_blank">
-                <i class="fab fa-whatsapp"></i> Order
-              </a>
+              <a class="wa-order-btn" href="https://wa.me/923096587000?text=I%20want%20Chicken%20Black%20Pepper%20(Half)" target="_blank"><i class="fab fa-whatsapp"></i> Order</a>
             </div>
           </div>
         </div>
 
         <div class="menu-item" data-name="Chicken Chilli Dry">
+          <div class="item-img-wrap"><img src="assets/chilli.jpeg" alt="Chicken Chilli Dry"></div>
           <div class="item-info">
             <h3>Chicken Chilli Dry</h3>
             <p>Fiery crispy chicken tossed dry with green chillies, garlic, and bold spices — a must for heat lovers.</p>
@@ -708,14 +512,13 @@
             </div>
             <div class="order-row">
               <span class="selected-price">Rs. 795</span>
-              <a class="wa-order-btn" href="https://wa.me/923096587000?text=I%20want%20Chicken%20Chilli%20Dry%20(Half)" target="_blank">
-                <i class="fab fa-whatsapp"></i> Order
-              </a>
+              <a class="wa-order-btn" href="https://wa.me/923096587000?text=I%20want%20Chicken%20Chilli%20Dry%20(Half)" target="_blank"><i class="fab fa-whatsapp"></i> Order</a>
             </div>
           </div>
         </div>
 
         <div class="menu-item" data-name="Chicken Cashew">
+          <div class="item-img-wrap no-img"></div>
           <div class="item-info">
             <h3>Chicken Cashew</h3>
             <p>Wok-tossed chicken with crunchy cashew nuts in a light, savoury sauce with a subtle sweetness.</p>
@@ -727,14 +530,13 @@
             </div>
             <div class="order-row">
               <span class="selected-price">Rs. 795</span>
-              <a class="wa-order-btn" href="https://wa.me/923096587000?text=I%20want%20Chicken%20Cashew%20(Half)" target="_blank">
-                <i class="fab fa-whatsapp"></i> Order
-              </a>
+              <a class="wa-order-btn" href="https://wa.me/923096587000?text=I%20want%20Chicken%20Cashew%20(Half)" target="_blank"><i class="fab fa-whatsapp"></i> Order</a>
             </div>
           </div>
         </div>
 
         <div class="menu-item" data-name="Sichuan Chicken">
+          <div class="item-img-wrap"><img src="assets/sich.jpeg" alt="Sichuan Chicken"></div>
           <div class="item-info">
             <h3>Sichuan Chicken</h3>
             <p>Aromatic chicken in a numbing, spicy Sichuan-style sauce with dried chillies and Sichuan peppercorns.</p>
@@ -746,14 +548,13 @@
             </div>
             <div class="order-row">
               <span class="selected-price">Rs. 795</span>
-              <a class="wa-order-btn" href="https://wa.me/923096587000?text=I%20want%20Sichuan%20Chicken%20(Half)" target="_blank">
-                <i class="fab fa-whatsapp"></i> Order
-              </a>
+              <a class="wa-order-btn" href="https://wa.me/923096587000?text=I%20want%20Sichuan%20Chicken%20(Half)" target="_blank"><i class="fab fa-whatsapp"></i> Order</a>
             </div>
           </div>
         </div>
 
         <div class="menu-item" data-name="Kung Pao Chicken">
+          <div class="item-img-wrap"><img src="assets/kung.jpeg" alt="Kung Pao Chicken"></div>
           <div class="item-info">
             <h3>Kung Pao Chicken</h3>
             <p>A beloved classic — diced chicken, peanuts, and dried chillies in a sweet, spicy, tangy Kung Pao glaze.</p>
@@ -765,9 +566,7 @@
             </div>
             <div class="order-row">
               <span class="selected-price">Rs. 795</span>
-              <a class="wa-order-btn" href="https://wa.me/923096587000?text=I%20want%20Kung%20Pao%20Chicken%20(Half)" target="_blank">
-                <i class="fab fa-whatsapp"></i> Order
-              </a>
+              <a class="wa-order-btn" href="https://wa.me/923096587000?text=I%20want%20Kung%20Pao%20Chicken%20(Half)" target="_blank"><i class="fab fa-whatsapp"></i> Order</a>
             </div>
           </div>
         </div>
@@ -782,43 +581,37 @@
     injectNavbar('menu');
     injectFooter();
 
-    // ===== VARIATION SELECTOR LOGIC =====
+    // Variation selector
     document.querySelectorAll('.menu-item').forEach(item => {
       const varBtns = item.querySelectorAll('.var-btn');
       const priceDisplay = item.querySelector('.selected-price');
       const orderBtn = item.querySelector('.wa-order-btn');
       const itemName = item.dataset.name;
-
       varBtns.forEach(btn => {
         btn.addEventListener('click', () => {
           varBtns.forEach(b => b.classList.remove('selected'));
           btn.classList.add('selected');
-          const price = btn.dataset.price;
-          const label = btn.dataset.label;
-          if (priceDisplay) priceDisplay.textContent = 'Rs. ' + price;
+          if (priceDisplay) priceDisplay.textContent = 'Rs. ' + btn.dataset.price;
           if (orderBtn) {
-            const msg = encodeURIComponent(`I want ${itemName} (${label})`);
+            const msg = encodeURIComponent(`I want ${itemName} (${btn.dataset.label})`);
             orderBtn.href = `https://wa.me/923096587000?text=${msg}`;
           }
         });
       });
     });
 
-    // ===== ACTIVE TAB ON SCROLL =====
+    // Active tab on scroll
     const tabs = document.querySelectorAll('.cat-tab');
     const sections = document.querySelectorAll('.menu-category');
-
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           tabs.forEach(t => t.classList.remove('active'));
-          const id = entry.target.id;
-          const activeTab = document.querySelector(`.cat-tab[href="#${id}"]`);
-          if (activeTab) activeTab.classList.add('active');
+          const active = document.querySelector(`.cat-tab[href="#${entry.target.id}"]`);
+          if (active) active.classList.add('active');
         }
       });
     }, { rootMargin: '-130px 0px -60% 0px' });
-
     sections.forEach(s => observer.observe(s));
   </script>
 </body>

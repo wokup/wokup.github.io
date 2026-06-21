@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gallery — WokUp Chinese Restaurant</title>
+  <link rel="stylesheet" href="shared.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <style>
+    body { padding-top: 70px; }
+
+    .gallery-header {
+      background: linear-gradient(rgba(0,0,0,0.72),rgba(0,0,0,0.92)),
+                  url('assets/rice.jpg') center/cover fixed;
+      padding: 70px 8% 65px; text-align: center;
+    }
+    .gallery-header h1 { font-size: 3.2rem; color: var(--yellow); letter-spacing: 2px; }
+    .gallery-header p  { color: var(--text-muted); margin-top: 12px; font-size: 1rem; }
+
+    .gallery-section { padding: 70px 8%; }
+
+    /* Masonry-style grid */
+    .gallery-grid {
+      columns: 3 280px;
+      column-gap: 18px;
+    }
+
+    .gallery-item {
+      break-inside: avoid;
+      margin-bottom: 18px;
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      border: 1px solid var(--border-card);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      display: block;
+      transition: transform 0.4s;
+    }
+
+    .gallery-item:hover img { transform: scale(1.04); }
+
+    .gallery-caption {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 30px 16px 14px;
+      background: linear-gradient(transparent, rgba(0,0,0,0.75));
+      color: #fff;
+      font-size: 0.88rem;
+      font-weight: bold;
+      letter-spacing: 0.3px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .gallery-item:hover .gallery-caption { opacity: 1; }
+
+    /* LIGHTBOX */
+    .lightbox {
+      display: none; position: fixed; inset: 0; z-index: 2000;
+      background: rgba(0,0,0,0.92); align-items: center; justify-content: center;
+      padding: 20px;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox-inner { position: relative; max-width: 900px; width: 100%; }
+    .lightbox-inner img { width: 100%; border-radius: 16px; max-height: 80vh; object-fit: contain; }
+    .lightbox-caption {
+      text-align: center; color: #ddd; margin-top: 14px;
+      font-size: 0.95rem; font-weight: bold;
+    }
+    .lightbox-close {
+      position: absolute; top: -16px; right: -16px;
+      width: 38px; height: 38px; border-radius: 50%;
+      background: var(--orange); color: white; border: none;
+      font-size: 1rem; cursor: pointer; display: flex;
+      align-items: center; justify-content: center; transition: 0.3s;
+    }
+    .lightbox-close:hover { transform: scale(1.1); }
+
+    @media(max-width:600px){ .gallery-header h1 { font-size: 2.3rem; } .gallery-section { padding: 50px 5%; } }
+  </style>
+</head>
+<body>
+
+  <div class="gallery-header">
+    <h1>Gallery</h1>
+    <p>A look at our food, our space, and what makes WokUp special</p>
+  </div>
+
+  <section class="gallery-section">
+    <div class="gallery-grid" id="gallery-grid">
+
+      <!-- =========================================
+           TO ADD A NEW IMAGE:
+           Copy one block below, change:
+             src="assets/YOUR-IMAGE.jpg"
+             data-caption="Your Label"
+           That's it — the grid handles the rest.
+           ========================================= -->
+
+      <div class="gallery-item" data-caption="Chicken Chow Mein" onclick="openLightbox(this)">
+        <img src="assets/chowmein.jpg" alt="Chicken Chow Mein" loading="lazy">
+        <div class="gallery-caption">Chicken Chow Mein</div>
+      </div>
+
+      <div class="gallery-item" data-caption="Honey Glazed Wings" onclick="openLightbox(this)">
+        <img src="assets/wings.jpg" alt="Honey Glazed Wings" loading="lazy">
+        <div class="gallery-caption">Honey Glazed Wings</div>
+      </div>
+
+      <div class="gallery-item" data-caption="Chicken Momos" onclick="openLightbox(this)">
+        <img src="assets/momos.jpg" alt="Chicken Momos" loading="lazy">
+        <div class="gallery-caption">Chicken Momos</div>
+      </div>
+
+      <div class="gallery-item" data-caption="Chicken Chilli Dry" onclick="openLightbox(this)">
+        <img src="assets/chilli.jpeg" alt="Chicken Chilli Dry" loading="lazy">
+        <div class="gallery-caption">Chicken Chilli Dry</div>
+      </div>
+
+      <div class="gallery-item" data-caption="Inside WokUp" onclick="openLightbox(this)">
+        <img src="assets/interior.jpeg" alt="WokUp Interior" loading="lazy">
+        <div class="gallery-caption">Inside WokUp</div>
+      </div>
+
+      <!-- Add more images here following the same pattern -->
+
+      <div class="gallery-item" data-caption="Family Dining-in" onclick="openLightbox(this)">
+        <img src="gallery/fmly-dine.jpeg" alt="Family Dining-in" loading="lazy">
+        <div class="gallery-caption">Dine-in</div>
+      </div>
+
+      <div class="gallery-item" data-caption="Food prep" onclick="openLightbox(this)">
+        <img src="gallery/food-prep.jpeg" alt="Food prep" loading="lazy">
+        <div class="gallery-caption">Food prep</div>
+      </div>
+
+      <div class="gallery-item" data-caption="Food serving" onclick="openLightbox(this)">
+        <img src="gallery/food-served.jpeg" alt="Food serving" loading="lazy">
+        <div class="gallery-caption">Food served</div>
+      </div>
+
+      <div class="gallery-item" data-caption="Seating" onclick="openLightbox(this)">
+        <img src="gallery/seating.jpeg" alt="Seating" loading="lazy">
+        <div class="gallery-caption">Seating</div>
+      </div>
+
+      <div class="gallery-item" data-caption="Entrance" onclick="openLightbox(this)">
+        <img src="gallery/front-ent.jpeg" alt="Entrance" loading="lazy">
+        <div class="gallery-caption">Entrance</div>
+      </div>
+
+      <div class="gallery-item" data-caption="Opening Entrance" onclick="openLightbox(this)">
+        <img src="gallery/r-entr.jpeg" alt="Opening Entrance" loading="lazy">
+        <div class="gallery-caption">Opening Entrance</div>
+      </div>
+
+      <div class="gallery-item" data-caption="Opening" onclick="openLightbox(this)">
+        <img src="gallery/out.jpeg" alt="Opening" loading="lazy">
+        <div class="gallery-caption">Opening</div>
+      </div>
+
+
+    </div>
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+    <div class="lightbox-inner">
+      <button class="lightbox-close" onclick="closeLightbox()"><i class="fas fa-times"></i></button>
+      <img id="lightbox-img" src="" alt="">
+      <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
+  </div>
+
+  <script src="layout.js"></script>
+  <script>
+    injectNavbar('gallery');
+    injectFooter();
+
+    function openLightbox(el) {
+      const img = el.querySelector('img');
+      document.getElementById('lightbox-img').src = img.src;
+      document.getElementById('lightbox-img').alt = img.alt;
+      document.getElementById('lightbox-caption').textContent = el.dataset.caption;
+      document.getElementById('lightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox(e) {
+      if (e && e.target !== document.getElementById('lightbox') && !e.target.closest('.lightbox-close')) return;
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // Close on Escape key
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        document.getElementById('lightbox').classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    });
+  </script>
+</body>
+</html>

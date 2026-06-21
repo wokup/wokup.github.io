@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <link rel="icon" type="image/png" href="assets/logo.png">
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact & Location — WokUp Chinese Restaurant</title>
   <link rel="stylesheet" href="shared.css">
@@ -10,283 +10,92 @@
   <style>
     body { padding-top: 70px; }
 
-    /* PAGE HEADER */
     .contact-header {
-      background: linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.92)),
+      background: linear-gradient(rgba(0,0,0,0.72),rgba(0,0,0,0.92)),
                   url('assets/rice.jpg') center/cover fixed;
-      padding: 70px 8% 65px;
-      text-align: center;
+      padding: 70px 8% 65px; text-align: center;
     }
+    .contact-header h1 { font-size: 3.2rem; color: var(--yellow); letter-spacing: 2px; }
+    .contact-header p  { color: var(--text-muted); margin-top: 12px; font-size: 1rem; }
 
-    .contact-header h1 {
-      font-size: 3.2rem;
-      color: #ffcc00;
-      letter-spacing: 2px;
-    }
+    .contact-section { padding: 80px 8%; display: grid; grid-template-columns: 1fr 1.4fr; gap: 60px; align-items: start; }
 
-    .contact-header p {
-      color: #aaa;
-      margin-top: 12px;
-      font-size: 1rem;
-    }
-
-    /* CONTACT MAIN GRID */
-    .contact-section {
-      padding: 80px 8%;
-      display: grid;
-      grid-template-columns: 1fr 1.4fr;
-      gap: 60px;
-      align-items: start;
-    }
-
-    /* LEFT: INFO CARDS */
-    .contact-info {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
+    /* INFO CARDS */
+    .contact-info { display: flex; flex-direction: column; gap: 18px; }
     .info-card {
-      background: #1a1a1a;
-      border-radius: 20px;
-      padding: 28px;
-      border: 1px solid rgba(255,255,255,0.04);
-      display: flex;
-      gap: 18px;
-      align-items: flex-start;
-      transition: 0.3s;
+      background: var(--card); border-radius: 20px; padding: 26px;
+      border: 1px solid var(--border-card); display: flex; gap: 16px; align-items: flex-start; transition: 0.3s;
     }
-
-    .info-card:hover {
-      border-color: rgba(255,204,0,0.2);
-    }
-
+    .info-card:hover { border-color: rgba(255,204,0,0.25); }
     .info-card-icon {
-      width: 46px;
-      height: 46px;
-      background: rgba(255,204,0,0.08);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      color: #ffcc00;
-      flex-shrink: 0;
+      width: 44px; height: 44px; background: rgba(255,204,0,0.08);
+      border-radius: 12px; display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; color: var(--yellow); flex-shrink: 0;
     }
+    .info-card-body h3 { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-faint); margin-bottom: 6px; }
+    .info-card-body p, .info-card-body a { color: var(--body-color); font-size: 0.98rem; text-decoration: none; line-height: 1.6; transition: color 0.3s; }
+    .info-card-body a:hover { color: var(--yellow); }
+    .info-card-body .sub { color: var(--text-faint); font-size: 0.8rem; margin-top: 4px; }
 
-    .info-card-body h3 {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #666;
-      margin-bottom: 6px;
-    }
-
-    .info-card-body p,
-    .info-card-body a {
-      color: #ddd;
-      font-size: 1rem;
-      text-decoration: none;
-      line-height: 1.6;
-      transition: color 0.3s;
-    }
-
-    .info-card-body a:hover { color: #ffcc00; }
-
-    .info-card-body .sub {
-      color: #666;
-      font-size: 0.82rem;
-      margin-top: 4px;
-    }
-
-    /* HOURS TABLE */
-    .hours-table {
-      width: 100%;
-      margin-top: 6px;
-    }
-
-    .hours-row {
-      display: flex;
-      justify-content: space-between;
-      padding: 5px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.04);
-      font-size: 0.88rem;
-    }
-
+    .hours-table { width: 100%; margin-top: 6px; }
+    .hours-row { display: flex; justify-content: space-between; padding: 5px 0; border-bottom: 1px solid var(--border-card); font-size: 0.86rem; }
     .hours-row:last-child { border-bottom: none; }
+    .hours-row .day  { color: var(--text-dim); }
+    .hours-row .time { color: var(--body-color); }
+    .hours-row .time.open { color: var(--green); }
 
-    .hours-row .day { color: #888; }
-    .hours-row .time { color: #ddd; }
-    .hours-row .time.open { color: #25D366; }
-
-    /* SOCIAL LINKS */
-    .social-links-card {
-      background: #1a1a1a;
-      border-radius: 20px;
-      padding: 28px;
-      border: 1px solid rgba(255,255,255,0.04);
-    }
-
-    .social-links-card h3 {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #666;
-      margin-bottom: 16px;
-    }
-
-    .social-btns {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .social-link-btn {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      padding: 12px 16px;
-      border-radius: 12px;
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: bold;
-      transition: 0.25s;
-    }
-
-    .social-link-btn .sl-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1rem;
-      flex-shrink: 0;
-    }
-
-    .sl-whatsapp { background: rgba(37,211,102,0.08); color: #25D366; }
-    .sl-whatsapp:hover { background: rgba(37,211,102,0.15); }
-    .sl-whatsapp .sl-icon { background: rgba(37,211,102,0.15); color: #25D366; }
-
-    .sl-instagram { background: rgba(225,48,108,0.08); color: #E1306C; }
+    .social-links-card { background: var(--card); border-radius: 20px; padding: 26px; border: 1px solid var(--border-card); }
+    .social-links-card h3 { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-faint); margin-bottom: 14px; }
+    .social-btns { display: flex; flex-direction: column; gap: 10px; }
+    .social-link-btn { display: flex; align-items: center; gap: 14px; padding: 11px 14px; border-radius: 12px; text-decoration: none; font-size: 0.88rem; font-weight: bold; transition: 0.25s; }
+    .sl-icon { width: 34px; height: 34px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 0.95rem; flex-shrink: 0; }
+    .sl-whatsapp  { background: rgba(37,211,102,0.08);  color: #25D366; }
+    .sl-whatsapp:hover  { background: rgba(37,211,102,0.15); }
+    .sl-whatsapp .sl-icon  { background: rgba(37,211,102,0.15);  color: #25D366; }
+    .sl-instagram { background: rgba(225,48,108,0.08);  color: #E1306C; }
     .sl-instagram:hover { background: rgba(225,48,108,0.15); }
-    .sl-instagram .sl-icon { background: rgba(225,48,108,0.15); color: #E1306C; }
+    .sl-instagram .sl-icon { background: rgba(225,48,108,0.15);  color: #E1306C; }
+    .sl-facebook  { background: rgba(24,119,242,0.08);  color: #1877F2; }
+    .sl-facebook:hover  { background: rgba(24,119,242,0.15); }
+    .sl-facebook .sl-icon  { background: rgba(24,119,242,0.15);  color: #1877F2; }
+    .sl-handle { font-size: 0.75rem; color: var(--text-faint); margin-left: auto; }
 
-    .sl-facebook { background: rgba(24,119,242,0.08); color: #1877F2; }
-    .sl-facebook:hover { background: rgba(24,119,242,0.15); }
-    .sl-facebook .sl-icon { background: rgba(24,119,242,0.15); color: #1877F2; }
-
-    .sl-label { color: inherit; }
-    .sl-handle { font-size: 0.75rem; color: #555; margin-left: auto; }
-
-    /* RIGHT: MAP */
-    .map-container {
-      position: sticky;
-      top: 90px;
-    }
-
-    .map-label {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #555;
-      margin-bottom: 12px;
-    }
-
-    .map-wrapper {
-      border-radius: 20px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.06);
-    }
-
-    .map-wrapper iframe {
-      width: 100%;
-      height: 420px;
-      display: block;
-    }
-
+    /* MAP */
+    .map-container { position: sticky; top: 90px; }
+    .map-label { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-faint); margin-bottom: 12px; }
+    .map-wrapper { border-radius: 20px; overflow: hidden; border: 1px solid var(--border-card); }
+    .map-wrapper iframe { width: 100%; height: 420px; display: block; }
     .map-link-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      margin-top: 14px;
-      padding: 14px;
-      background: #1a1a1a;
-      border-radius: 14px;
-      text-decoration: none;
-      color: #ddd;
-      font-size: 0.88rem;
-      font-weight: bold;
-      border: 1px solid rgba(255,255,255,0.05);
-      transition: 0.3s;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      margin-top: 12px; padding: 14px; background: var(--card);
+      border-radius: 14px; text-decoration: none; color: var(--text-muted);
+      font-size: 0.86rem; font-weight: bold; border: 1px solid var(--border-card); transition: 0.3s;
     }
-
-    .map-link-btn:hover {
-      border-color: rgba(255,204,0,0.3);
-      color: #ffcc00;
-    }
-
-    .map-link-btn i { color: #ff4d00; }
+    .map-link-btn:hover { border-color: rgba(255,204,0,0.3); color: var(--yellow); }
+    .map-link-btn i { color: var(--orange); }
 
     /* ORDER BANNER */
     .order-banner {
-      margin: 0 8% 80px;
-      background: linear-gradient(135deg, rgba(255,77,0,0.12), rgba(255,204,0,0.06));
-      border: 1px solid rgba(255,204,0,0.12);
-      border-radius: 24px;
-      padding: 50px 40px;
-      text-align: center;
+      margin: 0 8% 80px; padding: 50px 40px; text-align: center;
+      background: linear-gradient(135deg,rgba(255,77,0,0.08),rgba(255,204,0,0.04));
+      border: 1px solid rgba(255,204,0,0.12); border-radius: 24px;
     }
+    .order-banner h2 { font-size: 2rem; color: var(--yellow); margin-bottom: 12px; }
+    .order-banner p  { color: var(--text-dim); margin-bottom: 28px; }
+    .order-banner-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
-    .order-banner h2 {
-      font-size: 2rem;
-      color: #ffcc00;
-      margin-bottom: 12px;
-    }
-
-    .order-banner p {
-      color: #888;
-      margin-bottom: 28px;
-    }
-
-    .order-banner-btns {
-      display: flex;
-      gap: 14px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    @media (max-width: 900px) {
-      .contact-section {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-
-      .map-container {
-        position: static;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .contact-header h1 { font-size: 2.3rem; }
-      .order-banner { margin: 0 5% 60px; padding: 35px 20px; }
-      .order-banner h2 { font-size: 1.6rem; }
-    }
+    @media(max-width:900px){ .contact-section { grid-template-columns: 1fr; gap: 40px; } .map-container { position: static; } }
+    @media(max-width:600px){ .contact-header h1 { font-size: 2.3rem; } .order-banner { margin: 0 5% 60px; padding: 35px 20px; } .order-banner h2 { font-size: 1.6rem; } }
   </style>
 </head>
 <body>
 
-  <!-- Page Header -->
   <div class="contact-header">
     <h1>Find Us</h1>
     <p>Opposite Pakistan Mint, GT Road, Lahore</p>
   </div>
 
-  <!-- CONTACT + MAP GRID -->
   <section class="contact-section">
-
-    <!-- LEFT: Contact Info -->
     <div class="contact-info">
 
       <div class="info-card">
@@ -294,6 +103,7 @@
         <div class="info-card-body">
           <h3>Address</h3>
           <p>Opposite Pakistan Mint<br>GT Road, Lahore</p>
+          <p class="sub">Easy to find — landmark location</p>
         </div>
       </div>
 
@@ -302,7 +112,7 @@
         <div class="info-card-body">
           <h3>Phone</h3>
           <a href="tel:03096587000">0309 6587000</a>
-          <p class="sub">Call to inquire or palce an order</p>
+          <p class="sub">Call to inquire or reserve a table</p>
         </div>
       </div>
 
@@ -311,87 +121,58 @@
         <div class="info-card-body">
           <h3>Opening Hours</h3>
           <div class="hours-table">
-            <div class="hours-row">
-              <span class="day">Monday – Thursday   </span>
-              <span class="time open">    04:00 PM – 02:00 AM</span>
-            </div>
-            <div class="hours-row">
-              <span class="day">Friday    </span>
-              <span class="time open">    04:00 PM – 02:00 AM</span>
-            </div>
-            <div class="hours-row">
-              <span class="day">Saturday – Sunday    </span>
-              <span class="time open">     04:00 PM – 02:00 AM</span>
-            </div>
+            <div class="hours-row"><span class="day">Monday – Thursday</span><span class="time open">04:00 PM – 02:00 AM</span></div>
+            <div class="hours-row"><span class="day">Friday</span><span class="time open">04:00 PM – 02:00 AM</span></div>
+            <div class="hours-row"><span class="day">Saturday – Sunday</span><span class="time open">04:00 PM – 02:00 AM</span></div>
           </div>
         </div>
       </div>
 
-      <!-- Social Links -->
       <div class="social-links-card">
-        <h3>Follow Us</h3>
+        <h3>Follow &amp; Connect</h3>
         <div class="social-btns">
-
           <a href="https://wa.me/923096587000?text=I%20want%20to%20order%20from%20WokUp" target="_blank" class="social-link-btn sl-whatsapp">
             <div class="sl-icon"><i class="fab fa-whatsapp"></i></div>
-            <span class="sl-label">Order on WhatsApp</span>
+            <span>Order on WhatsApp</span>
             <span class="sl-handle">0309 6587000</span>
           </a>
-
           <a href="https://www.instagram.com/wokup_lhr" target="_blank" class="social-link-btn sl-instagram">
             <div class="sl-icon"><i class="fab fa-instagram"></i></div>
-            <span class="sl-label">Instagram</span>
+            <span>Instagram</span>
             <span class="sl-handle">@wokup_lhr</span>
           </a>
-
           <a href="https://www.facebook.com/profile.php?id=61586208690025" target="_blank" class="social-link-btn sl-facebook">
             <div class="sl-icon"><i class="fab fa-facebook-f"></i></div>
-            <span class="sl-label">Facebook</span>
+            <span>Facebook</span>
             <span class="sl-handle">WokUp Chinese</span>
           </a>
-
         </div>
       </div>
 
     </div>
 
-    <!-- RIGHT: Map -->
     <div class="map-container">
-      <div class="map-label"><i class="fas fa-location-dot" style="color:#ff4d00;margin-right:6px;"></i> Our Location</div>
+      <div class="map-label"><i class="fas fa-location-dot" style="color:var(--orange);margin-right:6px;"></i> Our Location</div>
       <div class="map-wrapper">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d337.199611793532!2d74.39083526641606!3d31.585654318621085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39191b7fce6004db%3A0xa344fd37075bde85!2sWokUp%20Chinese!5e0!3m2!1sen!2s!4v1782022893369!5m2!1sen!2s"
-          height="420"
-          style="border:0;"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d337.199611793532!2d74.39083526641606!3d31.585654318621085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39191b7fce6004db%3A0xa344fd37075bde85!2sWokUp%20Chinese!5e0!3m2!1sen!2s!4v1782022893369!5m2!1sen!2s"
+          style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
       <a href="https://maps.app.goo.gl/mf1J7GN1cu75SCpw8" target="_blank" class="map-link-btn">
-        <i class="fas fa-diamond-turn-right"></i>
-        Open in Google Maps for Directions
+        <i class="fas fa-diamond-turn-right"></i> Open in Google Maps for Directions
       </a>
     </div>
-
   </section>
 
-  <!-- ORDER BANNER -->
   <div class="order-banner">
     <h2>Skip the Queue — Order on WhatsApp</h2>
     <p>Place your order directly and we'll have it ready for you.</p>
     <div class="order-banner-btns">
-      <a href="https://wa.me/923096587000?text=I%20want%20to%20order%20from%20WokUp" target="_blank" class="btn-whatsapp">
-        <i class="fab fa-whatsapp"></i> Chat with Us Now
-      </a>
+      <a href="https://wa.me/923096587000?text=I%20want%20to%20order%20from%20WokUp" target="_blank" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> Chat with Us Now</a>
       <a href="menu.html" class="btn-orange">Browse the Menu</a>
     </div>
   </div>
 
   <script src="layout.js"></script>
-  <script>
-    injectNavbar('contact');
-    injectFooter();
-  </script>
+  <script>injectNavbar('contact'); injectFooter();</script>
 </body>
 </html>
