@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us — WokUp Chinese Restaurant</title>
+  <link rel="stylesheet" href="shared.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <style>
+    body { padding-top: 70px; }
+
+    /* PAGE HEADER */
+    .about-header {
+      background: linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.92)),
+                  url('assets/rice.jpg') center/cover fixed;
+      padding: 70px 8% 65px;
+      text-align: center;
+    }
+
+    .about-header h1 {
+      font-size: 3.2rem;
+      color: #ffcc00;
+      letter-spacing: 2px;
+    }
+
+    .about-header p {
+      color: #aaa;
+      margin-top: 12px;
+      font-size: 1rem;
+      max-width: 550px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+    }
+
+    /* STORY SECTION */
+    .story-section {
+      padding: 80px 8%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .story-text h2 {
+      font-size: 2.3rem;
+      color: #ffcc00;
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+
+    .story-text p {
+      color: #aaa;
+      line-height: 1.9;
+      margin-bottom: 18px;
+      font-size: 0.95rem;
+    }
+
+    .story-highlight {
+      border-left: 3px solid #ffcc00;
+      padding-left: 20px;
+      color: #ddd !important;
+      font-style: italic;
+      font-size: 1.05rem !important;
+      margin: 25px 0 !important;
+    }
+
+    .story-visual {
+      background: #1a1a1a;
+      border-radius: 25px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .story-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .story-visual-placeholder {
+      text-align: center;
+      padding: 40px;
+    }
+
+    .story-visual-placeholder i {
+      font-size: 5rem;
+      color: rgba(255,204,0,0.2);
+      display: block;
+      margin-bottom: 15px;
+    }
+
+    .story-visual-placeholder span {
+      color: #444;
+      font-size: 0.85rem;
+    }
+
+    /* STATS BAR */
+    .stats-section {
+      background: #111;
+      padding: 60px 8%;
+      border-top: 1px solid rgba(255,204,0,0.08);
+      border-bottom: 1px solid rgba(255,204,0,0.08);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      text-align: center;
+    }
+
+    .stat-item {
+      padding: 30px 20px;
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #ffcc00;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      color: #666;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* VALUES */
+    .values-section {
+      padding: 80px 8%;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 25px;
+      margin-top: 50px;
+    }
+
+    .value-card {
+      background: #1a1a1a;
+      border-radius: 20px;
+      padding: 35px 28px;
+      border: 1px solid rgba(255,255,255,0.04);
+      transition: 0.3s;
+    }
+
+    .value-card:hover {
+      border-color: rgba(255,204,0,0.2);
+      transform: translateY(-4px);
+    }
+
+    .value-icon {
+      font-size: 2rem;
+      color: #ffcc00;
+      margin-bottom: 18px;
+    }
+
+    .value-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    .value-card p {
+      color: #777;
+      font-size: 0.875rem;
+      line-height: 1.7;
+    }
+
+    /* VISIT CTA */
+    .visit-section {
+      padding: 80px 8%;
+      background: #111;
+      text-align: center;
+    }
+
+    .visit-section h2 {
+      font-size: 2.3rem;
+      color: #ffcc00;
+      margin-bottom: 15px;
+    }
+
+    .visit-section p {
+      color: #888;
+      margin-bottom: 35px;
+      font-size: 1rem;
+    }
+
+    .visit-btns {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 900px) {
+      .story-section {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .about-header h1 { font-size: 2.3rem; }
+      .story-text h2 { font-size: 1.8rem; }
+      .stat-number { font-size: 2.2rem; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Page Header -->
+  <div class="about-header">
+    <h1>About WokUp</h1>
+    <p>A story of bold flavours, fresh ingredients, and a love for authentic Chinese cuisine — served right here in Lahore.</p>
+  </div>
+
+  <!-- STORY -->
+  <section class="story-section">
+    <div class="story-text">
+      <h2>From Our Wok to Your Table</h2>
+      <p>WokUp was born from a simple belief: that great Chinese food shouldn't be hard to find in Lahore. We set out to create a place where every dish is cooked with care, every ingredient is sourced fresh, and every meal is worth coming back for.</p>
+      <p class="story-highlight">"We don't rush the wok. Every dish gets the heat, the time, and the attention it deserves."</p>
+      <p>Located opposite Pakistan Mint on GT Road, we've built our reputation one plate at a time — from our silky Chicken Corn Soup to our bold Sichuan Chicken, each recipe is crafted to bring out the best of Chinese culinary tradition.</p>
+      <p>Whether you're dining in or ordering on WhatsApp, we promise the same: fresh, generous, flavourful food — every single time.</p>
+    </div>
+    <div class="story-visual">
+      <!-- Replace with an actual restaurant interior photo -->
+      <div class="story-visual-placeholder">
+        <i class="fas fa-utensils"></i>
+        <span>Restaurant interior photo</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats-section">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-number">30+</div>
+        <div class="stat-label">Menu Items</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">6</div>
+        <div class="stat-label">Categories</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Fresh Daily</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">12h</div>
+        <div class="stat-label">Open Daily</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="values-section">
+    <h2 class="section-title">What We Stand For</h2>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon"><i class="fas fa-fire-flame-curved"></i></div>
+        <h3>Wok-First Cooking</h3>
+        <p>Every dish is cooked live on a high-heat wok. No pre-cooked batches, no shortcuts — just real wok cooking.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon"><i class="fas fa-leaf"></i></div>
+        <h3>Fresh Every Day</h3>
+        <p>We source our ingredients fresh every morning. Nothing sits overnight. What you eat today was prepared today.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon"><i class="fas fa-hand-holding-heart"></i></div>
+        <h3>Generous Portions</h3>
+        <p>Half or Full — we make sure you're satisfied. Our portions are honest, our prices are fair.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon"><i class="fas fa-comments"></i></div>
+        <h3>Simple Ordering</h3>
+        <p>No apps to download. Just WhatsApp us your order and we'll take care of everything.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISIT CTA -->
+  <section class="visit-section">
+    <h2>Come Visit Us</h2>
+    <p>We're on GT Road, opposite Pakistan Mint — easy to find, worth the trip.</p>
+    <div class="visit-btns">
+      <a href="contact.html" class="btn-orange">Get Directions</a>
+      <a href="https://wa.me/923096587000?text=I%20want%20to%20order%20from%20WokUp" target="_blank" class="btn-whatsapp">
+        <i class="fab fa-whatsapp"></i> Order on WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <script src="layout.js"></script>
+  <script>
+    injectNavbar('about');
+    injectFooter();
+  </script>
+</body>
+</html>
