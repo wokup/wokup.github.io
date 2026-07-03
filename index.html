@@ -67,8 +67,10 @@
       background: var(--green); color: white; padding: 12px 22px;
       border-radius: 50px; text-decoration: none; font-weight: bold;
       transition: 0.3s; display: flex; align-items: center; gap: 6px;
+      border: none; cursor: pointer; font-size: 0.9rem; font-family: inherit;
     }
     .order-btn:hover { transform: scale(1.05); }
+    .order-btn:disabled { opacity: 0.7; cursor: default; transform: none; }
     .view-all-wrap { text-align: center; margin-top: 55px; }
 
     /* TESTIMONIALS */
@@ -173,36 +175,36 @@
     <h2>Popular Items</h2>
     <p class="menu-subtitle">Our crowd favourites — order them once and they'll be your regular.</p>
     <div class="menu-grid">
-      <div class="menu-card">
+      <div class="menu-card" data-name="Chicken Chow Mein" data-price="495">
         <div class="image-container"><img src="assets/chowmein.jpg" alt="Chicken Chow Mein"></div>
         <div class="card-content">
           <h3>Chicken Chow Mein</h3>
           <p>Stir-fried noodles tossed with tender chicken, crisp vegetables, and savoury wok sauce.</p>
           <div class="price-row">
             <span class="price">Rs. 495</span>
-            <a class="order-btn" href="https://wa.me/923096587000?text=I%20want%20Chicken%20Chow%20Mein" target="_blank"><i class="fab fa-whatsapp"></i> Order</a>
+            <button class="order-btn" onclick="addToCartFromItem(this)"><i class="fas fa-cart-plus"></i> Add</button>
           </div>
         </div>
       </div>
-      <div class="menu-card">
+      <div class="menu-card" data-name="Honey Glazed Wings" data-price="345" data-variation="4 pcs">
         <div class="image-container"><img src="assets/wings.jpg" alt="Honey Glazed Wings"></div>
         <div class="card-content">
           <h3>Honey Glazed Wings</h3>
           <p>Crispy fried wings coated in a sticky-sweet honey glaze with a hint of garlic.</p>
           <div class="price-row">
             <span class="price">from Rs. 345</span>
-            <a class="order-btn" href="https://wa.me/923096587000?text=I%20want%20Honey%20Glazed%20Wings" target="_blank"><i class="fab fa-whatsapp"></i> Order</a>
+            <button class="order-btn" onclick="addToCartFromItem(this)"><i class="fas fa-cart-plus"></i> Add</button>
           </div>
         </div>
       </div>
-      <div class="menu-card">
+      <div class="menu-card" data-name="Chicken Momos" data-price="395" data-variation="6 pcs">
         <div class="image-container"><img src="assets/momos.jpg" alt="Chicken Momos"></div>
         <div class="card-content">
           <h3>Chicken Momos</h3>
           <p>Soft steamed dumplings filled with spiced minced chicken, served with a fiery dip.</p>
           <div class="price-row">
             <span class="price">from Rs. 395</span>
-            <a class="order-btn" href="https://wa.me/923096587000?text=I%20want%20Chicken%20Momos" target="_blank"><i class="fab fa-whatsapp"></i> Order</a>
+            <button class="order-btn" onclick="addToCartFromItem(this)"><i class="fas fa-cart-plus"></i> Add</button>
           </div>
         </div>
       </div>
