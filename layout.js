@@ -145,6 +145,7 @@ function injectFooter() {
           <li><a href="menu.html#noodles">Noodles & Pasta</a></li>
           <li><a href="menu.html#rice">Rice Delights</a></li>
           <li><a href="menu.html#chefs">Signature Gravies</a></li>
+          <li><a href="menu.html#deals">Deals</a></li>
         </ul>
       </div>
       <div class="footer-col">
