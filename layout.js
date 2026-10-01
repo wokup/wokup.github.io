@@ -145,7 +145,6 @@ function injectFooter() {
           <li><a href="menu.html#noodles">Noodles & Pasta</a></li>
           <li><a href="menu.html#rice">Rice Delights</a></li>
           <li><a href="menu.html#chefs">Signature Gravies</a></li>
-          <li><a href="menu.html#deals">Deals</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -232,6 +231,8 @@ function addToCartFromItem(btn) {
   let variation = null, price;
   if (selectedVar) {
     variation = selectedVar.dataset.label;
+    const surcharge = parseInt(selectedVar.dataset.surcharge || '0', 10);
+    if (surcharge > 0) variation += ` +Rs. ${surcharge}`;
     price = parseFloat(selectedVar.dataset.price);
   } else {
     price = parseFloat(item.dataset.price);
