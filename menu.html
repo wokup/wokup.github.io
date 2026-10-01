@@ -103,8 +103,29 @@
       margin: 2px 0 2px;
     }
 
-    /* Deal card — stacks description + gravy groups cleanly */
+    /* Deal card — too many gravy options to sit beside the description in a side
+       column (that squeezed .item-info down to near-zero width), so deals stack
+       vertically instead: title/description full-width, then gravy chips wrapping
+       naturally, then price + Add button at the bottom. Applies at every breakpoint. */
+    .deal-item {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .deal-item .item-info {
+      flex: none;
+      padding: 20px 24px 0 24px;
+    }
     .deal-item .item-info p { margin-bottom: 4px; }
+    .deal-item .item-right {
+      width: 100%;
+      min-width: 0;
+      flex-direction: column;
+      align-items: stretch;
+      padding: 14px 24px 22px 24px;
+    }
+    .deal-item .variations { justify-content: flex-start; }
+    .deal-item .gravy-group-label { text-align: left; }
+    .deal-item .order-row { justify-content: flex-end; margin-top: 12px; }
     .deal-includes {
       font-size: 0.78rem; color: var(--text-faint);
       font-style: italic; margin-top: 2px;
