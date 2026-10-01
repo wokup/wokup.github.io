@@ -144,7 +144,7 @@ function injectFooter() {
           <li><a href="menu.html#fried">Fried Specials</a></li>
           <li><a href="menu.html#noodles">Noodles & Pasta</a></li>
           <li><a href="menu.html#rice">Rice Delights</a></li>
-          <li><a href="menu.html#chefs">Chef's Specials</a></li>
+          <li><a href="menu.html#chefs">Signature Gravies</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -390,7 +390,8 @@ function placeOrderWhatsApp() {
   const message =
     `Hi WokUp! I'd like to place this order:\n\n` +
     lines.join('\n') +
-    `\n\nTotal: Rs. ${total}`;
+    `\n\nTotal: Rs. ${total}` +
+    `\n\n(Delivery charges will be added based on distance)`;
 
   const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`;
   window.open(url, '_blank');
