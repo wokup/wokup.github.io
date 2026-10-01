@@ -91,7 +91,30 @@
     .var-btn:hover  { border-color: var(--yellow); color: var(--yellow); }
     .var-btn.selected { background: var(--yellow); color: #000; border-color: var(--yellow); font-weight: bold; }
 
+    /* Premium gravy chips (deals) — same behaviour, subtle accent to flag the upcharge */
+    .var-btn.premium { border-color: rgba(255,77,0,0.4); }
+    .var-btn.premium:hover { border-color: var(--orange); color: var(--orange); }
+    .var-btn.premium.selected { background: var(--orange); color: #fff; border-color: var(--orange); }
+
+    .gravy-group-label {
+      width: 100%; text-align: right;
+      font-size: 0.72rem; color: var(--text-faint);
+      text-transform: uppercase; letter-spacing: 0.5px;
+      margin: 2px 0 2px;
+    }
+
+    /* Deal card — stacks description + gravy groups cleanly */
+    .deal-item .item-info p { margin-bottom: 4px; }
+    .deal-includes {
+      font-size: 0.78rem; color: var(--text-faint);
+      font-style: italic; margin-top: 2px;
+    }
+
     .selected-price { font-size: 1.15rem; color: var(--yellow); font-weight: bold; min-height: 1.4rem; }
+    .surcharge-note {
+      font-size: 0.72rem; color: var(--orange); font-weight: bold;
+      margin-left: -4px; align-self: center;
+    }
     .order-row { display: flex; align-items: center; gap: 12px; }
 
     .add-cart-btn {
@@ -143,17 +166,16 @@
   <div class="cat-tabs-wrap">
     <div class="cat-tabs">
       <a href="#soups"  class="cat-tab active"><i class="fas fa-mug-hot"></i> Soups</a>
-      <a href="#momos"  class="cat-tab"><i class="fas fa-circle-dot"></i> Momos</a>
+      <a href="#momos" class="cat-tab"><i class="fas fa-circle-dot"></i> Momos</a>
       <a href="#fried"  class="cat-tab"><i class="fas fa-drumstick-bite"></i> Fried Specials</a>
-      <a href="#noodles"class="cat-tab"><i class="fas fa-utensils"></i> Noodles & Pasta</a>
+      <a href="#noodles" class="cat-tab"><i class="fas fa-utensils"></i> Noodles & Pasta</a>
       <a href="#rice"   class="cat-tab"><i class="fas fa-bowl-rice"></i> Rice Delights</a>
       <a href="#chefs"  class="cat-tab"><i class="fas fa-star"></i> Signature Gravies</a>
+      <a href="#deals"  class="cat-tab"><i class="fas fa-tags"></i> Deals</a>
     </div>
   </div>
 
-  <div class="menu-body">
-
-    <!-- SOUPS -->
+  <div class="menu-body">    <!-- SOUPS -->
     <div class="menu-category" id="soups">
       <div class="category-header">
         <div class="category-icon"><i class="fas fa-mug-hot"></i></div>
@@ -169,11 +191,11 @@
           </div>
           <div class="item-right">
             <div class="variations">
-              <button class="var-btn selected" data-price="495" data-label="Half">Half — Rs. 495</button>
-              <button class="var-btn" data-price="695" data-label="Full">Full — Rs. 695</button>
+              <button class="var-btn selected" data-price="595" data-label="Half">Half — Rs. 595</button>
+              <button class="var-btn" data-price="895" data-label="Full">Full — Rs. 895</button>
             </div>
             <div class="order-row">
-              <span class="selected-price">Rs. 495</span>
+              <span class="selected-price">Rs. 595</span>
               <button class="add-cart-btn" onclick="addToCartFromItem(this)"><i class="fas fa-cart-plus"></i> Add</button>
             </div>
           </div>
@@ -187,11 +209,11 @@
           </div>
           <div class="item-right">
             <div class="variations">
-              <button class="var-btn selected" data-price="495" data-label="Half">Half — Rs. 495</button>
-              <button class="var-btn" data-price="695" data-label="Full">Full — Rs. 695</button>
+              <button class="var-btn selected" data-price="595" data-label="Half">Half — Rs. 595</button>
+              <button class="var-btn" data-price="895" data-label="Full">Full — Rs. 895</button>
             </div>
             <div class="order-row">
-              <span class="selected-price">Rs. 495</span>
+              <span class="selected-price">Rs. 595</span>
               <button class="add-cart-btn" onclick="addToCartFromItem(this)"><i class="fas fa-cart-plus"></i> Add</button>
             </div>
           </div>
@@ -263,11 +285,11 @@
           </div>
           <div class="item-right">
             <div class="variations">
-              <button class="var-btn selected" data-price="345" data-label="4 pcs">4 pcs — Rs. 345</button>
-              <button class="var-btn" data-price="595" data-label="8 pcs">8 pcs — Rs. 595</button>
+              <button class="var-btn selected" data-price="445" data-label="4 pcs">4 pcs — Rs. 445</button>
+              <button class="var-btn" data-price="745" data-label="8 pcs">8 pcs — Rs. 745</button>
             </div>
             <div class="order-row">
-              <span class="selected-price">Rs. 345</span>
+              <span class="selected-price">Rs. 445</span>
               <button class="add-cart-btn" onclick="addToCartFromItem(this)"><i class="fas fa-cart-plus"></i> Add</button>
             </div>
           </div>
@@ -281,17 +303,17 @@
           </div>
           <div class="item-right">
             <div class="variations">
-              <button class="var-btn selected" data-price="345" data-label="4 pcs">4 pcs — Rs. 345</button>
-              <button class="var-btn" data-price="595" data-label="8 pcs">8 pcs — Rs. 595</button>
+              <button class="var-btn selected" data-price="415" data-label="4 pcs">4 pcs — Rs. 415</button>
+              <button class="var-btn" data-price="695" data-label="8 pcs">8 pcs — Rs. 695</button>
             </div>
             <div class="order-row">
-              <span class="selected-price">Rs. 345</span>
+              <span class="selected-price">Rs. 415</span>
               <button class="add-cart-btn" onclick="addToCartFromItem(this)"><i class="fas fa-cart-plus"></i> Add</button>
             </div>
           </div>
         </div>
 
-        <div class="menu-item" data-name="Chicken Drumsticks" data-price="190">
+        <div class="menu-item" data-name="Chicken Drumsticks" data-price="245">
           <div class="item-img-wrap no-img"></div>
           <div class="item-info">
             <h3>Chicken Drumsticks</h3>
@@ -299,7 +321,7 @@
           </div>
           <div class="item-right">
             <div class="order-row">
-              <div><span class="single-price">Rs. 190</span><div class="per-pc-note">per piece</div></div>
+              <div><span class="single-price">Rs. 245</span><div class="per-pc-note">per piece</div></div>
               <button class="add-cart-btn" onclick="addToCartFromItem(this)"><i class="fas fa-cart-plus"></i> Add</button>
             </div>
           </div>
@@ -316,7 +338,7 @@
       </div>
       <div class="menu-items">
 
-        <div class="menu-item" data-name="Chicken Chow Mein" data-price="495">
+        <div class="menu-item" data-name="Chicken Chow Mein" data-price="595">
           <div class="item-img-wrap"><img src="assets/chowmein.jpg" alt="Chicken Chow Mein"></div>
           <div class="item-info">
             <h3>Chicken Chow Mein</h3>
@@ -324,13 +346,27 @@
           </div>
           <div class="item-right">
             <div class="order-row">
-              <span class="single-price">Rs. 495</span>
+              <span class="single-price">Rs. 595</span>
               <button class="add-cart-btn" onclick="addToCartFromItem(this)"><i class="fas fa-cart-plus"></i> Add</button>
             </div>
           </div>
         </div>
 
-        <div class="menu-item" data-name="Vegetable Chow Mein" data-price="395">
+        <div class="menu-item" data-name="Special WokUp Chow Mein" data-price="795">
+          <div class="item-img-wrap"><img src="assets/chowmein.jpg" alt="Special Chicken Chow Mein"></div>
+          <div class="item-info">
+            <h3>Special WokUp Chicken Chow Mein</h3>
+            <p>Stir-fried egg noodles with extra tender chicken strips and crisp vegetables (cabbage, capsicum and carrots) in a savoury wok sauce. You can customize your order to avoid any or all vegetables.</p>
+          </div>
+          <div class="item-right">
+            <div class="order-row">
+              <span class="single-price">Rs. 795</span>
+              <button class="add-cart-btn" onclick="addToCartFromItem(this)"><i class="fas fa-cart-plus"></i> Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item" data-name="Vegetable Chow Mein" data-price="495">
           <div class="item-img-wrap no-img"></div>
           <div class="item-info">
             <h3>Vegetable Chow Mein</h3>
@@ -338,7 +374,7 @@
           </div>
           <div class="item-right">
             <div class="order-row">
-              <span class="single-price">Rs. 395</span>
+              <span class="single-price">Rs. 495</span>
               <button class="add-cart-btn" onclick="addToCartFromItem(this)"><i class="fas fa-cart-plus"></i> Add</button>
             </div>
           </div>
@@ -391,11 +427,11 @@
           </div>
           <div class="item-right">
             <div class="variations">
-              <button class="var-btn selected" data-price="545" data-label="Half">Half — Rs. 545</button>
-              <button class="var-btn" data-price="795" data-label="Full">Full — Rs. 795</button>
+              <button class="var-btn selected" data-price="625" data-label="Half">Half — Rs. 625</button>
+              <button class="var-btn" data-price="895" data-label="Full">Full — Rs. 895</button>
             </div>
             <div class="order-row">
-              <span class="selected-price">Rs. 545</span>
+              <span class="selected-price">Rs. 625</span>
               <button class="add-cart-btn" onclick="addToCartFromItem(this)"><i class="fas fa-cart-plus"></i> Add</button>
             </div>
           </div>
@@ -409,11 +445,11 @@
           </div>
           <div class="item-right">
             <div class="variations">
-              <button class="var-btn selected" data-price="495" data-label="Half">Half — Rs. 495</button>
-              <button class="var-btn" data-price="695" data-label="Full">Full — Rs. 695</button>
+              <button class="var-btn selected" data-price="575" data-label="Half">Half — Rs. 575</button>
+              <button class="var-btn" data-price="845" data-label="Full">Full — Rs. 845</button>
             </div>
             <div class="order-row">
-              <span class="selected-price">Rs. 495</span>
+              <span class="selected-price">Rs. 575</span>
               <button class="add-cart-btn" onclick="addToCartFromItem(this)"><i class="fas fa-cart-plus"></i> Add</button>
             </div>
           </div>
@@ -427,11 +463,11 @@
           </div>
           <div class="item-right">
             <div class="variations">
-              <button class="var-btn selected" data-price="545" data-label="Half">Half — Rs. 545</button>
-              <button class="var-btn" data-price="795" data-label="Full">Full — Rs. 795</button>
+              <button class="var-btn selected" data-price="625" data-label="Half">Half — Rs. 625</button>
+              <button class="var-btn" data-price="895" data-label="Full">Full — Rs. 895</button>
             </div>
             <div class="order-row">
-              <span class="selected-price">Rs. 545</span>
+              <span class="selected-price">Rs. 625</span>
               <button class="add-cart-btn" onclick="addToCartFromItem(this)"><i class="fas fa-cart-plus"></i> Add</button>
             </div>
           </div>
@@ -445,11 +481,11 @@
           </div>
           <div class="item-right">
             <div class="variations">
-              <button class="var-btn selected" data-price="445" data-label="Half">Half — Rs. 445</button>
-              <button class="var-btn" data-price="645" data-label="Full">Full — Rs. 645</button>
+              <button class="var-btn selected" data-price="525" data-label="Half">Half — Rs. 525</button>
+              <button class="var-btn" data-price="745" data-label="Full">Full — Rs. 745</button>
             </div>
             <div class="order-row">
-              <span class="selected-price">Rs. 445</span>
+              <span class="selected-price">Rs. 525</span>
               <button class="add-cart-btn" onclick="addToCartFromItem(this)"><i class="fas fa-cart-plus"></i> Add</button>
             </div>
           </div>
@@ -474,11 +510,11 @@
           </div>
           <div class="item-right">
             <div class="variations">
-              <button class="var-btn selected" data-price="695" data-label="Half">Half — Rs. 695</button>
-              <button class="var-btn" data-price="895" data-label="Full">Full — Rs. 895</button>
+              <button class="var-btn selected" data-price="795" data-label="Half">Half — Rs. 795</button>
+              <button class="var-btn" data-price="1095" data-label="Full">Full — Rs. 1095</button>
             </div>
             <div class="order-row">
-              <span class="selected-price">Rs. 695</span>
+              <span class="selected-price">Rs. 795</span>
               <button class="add-cart-btn" onclick="addToCartFromItem(this)"><i class="fas fa-cart-plus"></i> Add</button>
             </div>
           </div>
@@ -492,11 +528,11 @@
           </div>
           <div class="item-right">
             <div class="variations">
-              <button class="var-btn selected" data-price="695" data-label="Half">Half — Rs. 695</button>
-              <button class="var-btn" data-price="895" data-label="Full">Full — Rs. 895</button>
+              <button class="var-btn selected" data-price="795" data-label="Half">Half — Rs. 795</button>
+              <button class="var-btn" data-price="1095" data-label="Full">Full — Rs. 1095</button>
             </div>
             <div class="order-row">
-              <span class="selected-price">Rs. 695</span>
+              <span class="selected-price">Rs. 795</span>
               <button class="add-cart-btn" onclick="addToCartFromItem(this)"><i class="fas fa-cart-plus"></i> Add</button>
             </div>
           </div>
@@ -510,11 +546,11 @@
           </div>
           <div class="item-right">
             <div class="variations">
-              <button class="var-btn selected" data-price="695" data-label="Half">Half — Rs. 695</button>
-              <button class="var-btn" data-price="895" data-label="Full">Full — Rs. 895</button>
+              <button class="var-btn selected" data-price="795" data-label="Half">Half — Rs. 795</button>
+              <button class="var-btn" data-price="1095" data-label="Full">Full — Rs. 1095</button>
             </div>
             <div class="order-row">
-              <span class="selected-price">Rs. 695</span>
+              <span class="selected-price">Rs. 795</span>
               <button class="add-cart-btn" onclick="addToCartFromItem(this)"><i class="fas fa-cart-plus"></i> Add</button>
             </div>
           </div>
@@ -528,11 +564,11 @@
           </div>
           <div class="item-right">
             <div class="variations">
-              <button class="var-btn selected" data-price="795" data-label="Half">Half — Rs. 795</button>
-              <button class="var-btn" data-price="995" data-label="Full">Full — Rs. 995</button>
+              <button class="var-btn selected" data-price="945" data-label="Half">Half — Rs. 945</button>
+              <button class="var-btn" data-price="1295" data-label="Full">Full — Rs. 1295</button>
             </div>
             <div class="order-row">
-              <span class="selected-price">Rs. 795</span>
+              <span class="selected-price">Rs. 945</span>
               <button class="add-cart-btn" onclick="addToCartFromItem(this)"><i class="fas fa-cart-plus"></i> Add</button>
             </div>
           </div>
@@ -546,11 +582,11 @@
           </div>
           <div class="item-right">
             <div class="variations">
-              <button class="var-btn selected" data-price="795" data-label="Half">Half — Rs. 795</button>
-              <button class="var-btn" data-price="995" data-label="Full">Full — Rs. 995</button>
+              <button class="var-btn selected" data-price="945" data-label="Half">Half — Rs. 945</button>
+              <button class="var-btn" data-price="1295" data-label="Full">Full — Rs. 1295</button>
             </div>
             <div class="order-row">
-              <span class="selected-price">Rs. 795</span>
+              <span class="selected-price">Rs. 945</span>
               <button class="add-cart-btn" onclick="addToCartFromItem(this)"><i class="fas fa-cart-plus"></i> Add</button>
             </div>
           </div>
@@ -564,11 +600,11 @@
           </div>
           <div class="item-right">
             <div class="variations">
-              <button class="var-btn selected" data-price="795" data-label="Half">Half — Rs. 795</button>
-              <button class="var-btn" data-price="995" data-label="Full">Full — Rs. 995</button>
+              <button class="var-btn selected" data-price="945" data-label="Half">Half — Rs. 945</button>
+              <button class="var-btn" data-price="1295" data-label="Full">Full — Rs. 1295</button>
             </div>
             <div class="order-row">
-              <span class="selected-price">Rs. 795</span>
+              <span class="selected-price">Rs. 945</span>
               <button class="add-cart-btn" onclick="addToCartFromItem(this)"><i class="fas fa-cart-plus"></i> Add</button>
             </div>
           </div>
@@ -582,11 +618,187 @@
           </div>
           <div class="item-right">
             <div class="variations">
-              <button class="var-btn selected" data-price="795" data-label="Half">Half — Rs. 795</button>
-              <button class="var-btn" data-price="995" data-label="Full">Full — Rs. 995</button>
+              <button class="var-btn selected" data-price="945" data-label="Half">Half — Rs. 945</button>
+              <button class="var-btn" data-price="1295" data-label="Full">Full — Rs. 1295</button>
             </div>
             <div class="order-row">
-              <span class="selected-price">Rs. 795</span>
+              <span class="selected-price">Rs. 945</span>
+              <button class="add-cart-btn" onclick="addToCartFromItem(this)"><i class="fas fa-cart-plus"></i> Add</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  
+
+    <!-- DEALS -->
+    <div class="menu-category" id="deals">
+      <div class="category-header">
+        <div class="category-icon"><i class="fas fa-tags"></i></div>
+        <div><h2>Deals</h2><p>Combo plates and family bundles — built for better value</p></div>
+      </div>
+      <div class="menu-items">
+
+        <div class="menu-item deal-item" data-name="Deal 1" data-price="895">
+          <div class="item-img-wrap no-img"></div>
+          <div class="item-info">
+            <h3>Deal 1</h3>
+            <p>A generous combo of Vegetable Chow Mein paired with our signature Chicken Manchurian.</p>
+          </div>
+          <div class="item-right">
+            <div class="order-row">
+              <span class="single-price">Rs. 895</span>
+              <button class="add-cart-btn" onclick="addToCartFromItem(this)"><i class="fas fa-cart-plus"></i> Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item deal-item" data-name="Deal 2" data-price="995">
+          <div class="item-img-wrap no-img"></div>
+          <div class="item-info">
+            <h3>Deal 2</h3>
+            <p>Chicken Chow Mein paired with 4 pieces of our crispy Chicken Wings.</p>
+          </div>
+          <div class="item-right">
+            <div class="order-row">
+              <span class="single-price">Rs. 995</span>
+              <button class="add-cart-btn" onclick="addToCartFromItem(this)"><i class="fas fa-cart-plus"></i> Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item deal-item" data-name="Deal 3">
+          <div class="item-img-wrap no-img"></div>
+          <div class="item-info">
+            <h3>Deal 3</h3>
+            <p>Egg Fried Rice served with your choice of gravy.</p>
+            <p class="deal-includes">Premium gravies add Rs. 100</p>
+          </div>
+          <div class="item-right">
+            <div class="variations">
+              <div class="gravy-group-label">Included</div>
+              <button class="var-btn selected" data-price="745" data-label="Chicken Manchurian">Chicken Manchurian</button>
+              <button class="var-btn" data-price="745" data-label="Chicken Shashlik">Chicken Shashlik</button>
+              <button class="var-btn" data-price="745" data-label="Chicken Black Pepper">Chicken Black Pepper</button>
+              <div class="gravy-group-label">Premium +Rs. 100</div>
+              <button class="var-btn premium" data-price="845" data-label="Chicken Chilli Dry" data-surcharge="100">Chicken Chilli Dry</button>
+              <button class="var-btn premium" data-price="845" data-label="Chicken Cashew" data-surcharge="100">Chicken Cashew</button>
+              <button class="var-btn premium" data-price="845" data-label="Sichuan Chicken" data-surcharge="100">Sichuan Chicken</button>
+              <button class="var-btn premium" data-price="845" data-label="Kung Pao Chicken" data-surcharge="100">Kung Pao Chicken</button>
+            </div>
+            <div class="order-row">
+              <span class="selected-price">Rs. 745</span>
+              <span class="surcharge-note"></span>
+              <button class="add-cart-btn" onclick="addToCartFromItem(this)"><i class="fas fa-cart-plus"></i> Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item deal-item" data-name="Deal 4">
+          <div class="item-img-wrap no-img"></div>
+          <div class="item-info">
+            <h3>Deal 4</h3>
+            <p>1 piece Chicken Drumstick with Egg Fried Rice, served with your choice of gravy.</p>
+            <p class="deal-includes">Premium gravies add Rs. 100</p>
+          </div>
+          <div class="item-right">
+            <div class="variations">
+              <div class="gravy-group-label">Included</div>
+              <button class="var-btn selected" data-price="975" data-label="Chicken Manchurian">Chicken Manchurian</button>
+              <button class="var-btn" data-price="975" data-label="Chicken Shashlik">Chicken Shashlik</button>
+              <button class="var-btn" data-price="975" data-label="Chicken Black Pepper">Chicken Black Pepper</button>
+              <div class="gravy-group-label">Premium +Rs. 100</div>
+              <button class="var-btn premium" data-price="1075" data-label="Chicken Chilli Dry" data-surcharge="100">Chicken Chilli Dry</button>
+              <button class="var-btn premium" data-price="1075" data-label="Chicken Cashew" data-surcharge="100">Chicken Cashew</button>
+              <button class="var-btn premium" data-price="1075" data-label="Sichuan Chicken" data-surcharge="100">Sichuan Chicken</button>
+              <button class="var-btn premium" data-price="1075" data-label="Kung Pao Chicken" data-surcharge="100">Kung Pao Chicken</button>
+            </div>
+            <div class="order-row">
+              <span class="selected-price">Rs. 975</span>
+              <span class="surcharge-note"></span>
+              <button class="add-cart-btn" onclick="addToCartFromItem(this)"><i class="fas fa-cart-plus"></i> Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item deal-item" data-name="Deal 5">
+          <div class="item-img-wrap no-img"></div>
+          <div class="item-info">
+            <h3>Deal 5</h3>
+            <p>Half portion Egg Fried Rice, served with your choice of gravy.</p>
+            <p class="deal-includes">Premium gravies add Rs. 160</p>
+          </div>
+          <div class="item-right">
+            <div class="variations">
+              <div class="gravy-group-label">Included</div>
+              <button class="var-btn selected" data-price="1245" data-label="Chicken Manchurian">Chicken Manchurian</button>
+              <button class="var-btn" data-price="1245" data-label="Chicken Shashlik">Chicken Shashlik</button>
+              <button class="var-btn" data-price="1245" data-label="Chicken Black Pepper">Chicken Black Pepper</button>
+              <div class="gravy-group-label">Premium +Rs. 160</div>
+              <button class="var-btn premium" data-price="1405" data-label="Chicken Chilli Dry" data-surcharge="160">Chicken Chilli Dry</button>
+              <button class="var-btn premium" data-price="1405" data-label="Chicken Cashew" data-surcharge="160">Chicken Cashew</button>
+              <button class="var-btn premium" data-price="1405" data-label="Sichuan Chicken" data-surcharge="160">Sichuan Chicken</button>
+              <button class="var-btn premium" data-price="1405" data-label="Kung Pao Chicken" data-surcharge="160">Kung Pao Chicken</button>
+            </div>
+            <div class="order-row">
+              <span class="selected-price">Rs. 1245</span>
+              <span class="surcharge-note"></span>
+              <button class="add-cart-btn" onclick="addToCartFromItem(this)"><i class="fas fa-cart-plus"></i> Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item deal-item" data-name="Family Deal">
+          <div class="item-img-wrap no-img"></div>
+          <div class="item-info">
+            <h3>Family Deal</h3>
+            <p>Full portion Egg Fried Rice, served with your choice of gravy.</p>
+            <p class="deal-includes">Premium gravies add Rs. 220</p>
+          </div>
+          <div class="item-right">
+            <div class="variations">
+              <div class="gravy-group-label">Included</div>
+              <button class="var-btn selected" data-price="1645" data-label="Chicken Manchurian">Chicken Manchurian</button>
+              <button class="var-btn" data-price="1645" data-label="Chicken Shashlik">Chicken Shashlik</button>
+              <button class="var-btn" data-price="1645" data-label="Chicken Black Pepper">Chicken Black Pepper</button>
+              <div class="gravy-group-label">Premium +Rs. 220</div>
+              <button class="var-btn premium" data-price="1865" data-label="Chicken Chilli Dry" data-surcharge="220">Chicken Chilli Dry</button>
+              <button class="var-btn premium" data-price="1865" data-label="Chicken Cashew" data-surcharge="220">Chicken Cashew</button>
+              <button class="var-btn premium" data-price="1865" data-label="Sichuan Chicken" data-surcharge="220">Sichuan Chicken</button>
+              <button class="var-btn premium" data-price="1865" data-label="Kung Pao Chicken" data-surcharge="220">Kung Pao Chicken</button>
+            </div>
+            <div class="order-row">
+              <span class="selected-price">Rs. 1645</span>
+              <span class="surcharge-note"></span>
+              <button class="add-cart-btn" onclick="addToCartFromItem(this)"><i class="fas fa-cart-plus"></i> Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item deal-item" data-name="Family Feast Deal">
+          <div class="item-img-wrap no-img"></div>
+          <div class="item-info">
+            <h3>Family Feast Deal</h3>
+            <p>4 pieces Chicken Drumsticks with Full portion Egg Fried Rice, served with your choice of gravy.</p>
+            <p class="deal-includes">Premium gravies add Rs. 220</p>
+          </div>
+          <div class="item-right">
+            <div class="variations">
+              <div class="gravy-group-label">Included</div>
+              <button class="var-btn selected" data-price="2445" data-label="Chicken Manchurian">Chicken Manchurian</button>
+              <button class="var-btn" data-price="2445" data-label="Chicken Shashlik">Chicken Shashlik</button>
+              <button class="var-btn" data-price="2445" data-label="Chicken Black Pepper">Chicken Black Pepper</button>
+              <div class="gravy-group-label">Premium +Rs. 220</div>
+              <button class="var-btn premium" data-price="2665" data-label="Chicken Chilli Dry" data-surcharge="220">Chicken Chilli Dry</button>
+              <button class="var-btn premium" data-price="2665" data-label="Chicken Cashew" data-surcharge="220">Chicken Cashew</button>
+              <button class="var-btn premium" data-price="2665" data-label="Sichuan Chicken" data-surcharge="220">Sichuan Chicken</button>
+              <button class="var-btn premium" data-price="2665" data-label="Kung Pao Chicken" data-surcharge="220">Kung Pao Chicken</button>
+            </div>
+            <div class="order-row">
+              <span class="selected-price">Rs. 2445</span>
+              <span class="surcharge-note"></span>
               <button class="add-cart-btn" onclick="addToCartFromItem(this)"><i class="fas fa-cart-plus"></i> Add</button>
             </div>
           </div>
@@ -602,15 +814,20 @@
     injectNavbar('menu');
     injectFooter();
 
-    // Variation selector — updates displayed price only; cart logic is global (layout.js)
+    // Variation selector — updates displayed price (and surcharge note for deals' gravy choice); cart logic is global (layout.js)
     document.querySelectorAll('.menu-item').forEach(item => {
       const varBtns = item.querySelectorAll('.var-btn');
       const priceDisplay = item.querySelector('.selected-price');
+      const surchargeNote = item.querySelector('.surcharge-note');
       varBtns.forEach(btn => {
         btn.addEventListener('click', () => {
           varBtns.forEach(b => b.classList.remove('selected'));
           btn.classList.add('selected');
           if (priceDisplay) priceDisplay.textContent = 'Rs. ' + btn.dataset.price;
+          if (surchargeNote) {
+            const surcharge = parseInt(btn.dataset.surcharge || '0', 10);
+            surchargeNote.textContent = surcharge > 0 ? `(+Rs. ${surcharge})` : '';
+          }
         });
       });
     });
