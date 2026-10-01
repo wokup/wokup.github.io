@@ -43,7 +43,21 @@
     .menu-section { padding: 80px 8%; }
     .menu-section h2 { text-align: center; margin-bottom: 15px; font-size: 3rem; color: var(--yellow); }
     .menu-subtitle { text-align: center; color: var(--text-dim); margin-bottom: 55px; font-size: 0.95rem; }
-    .menu-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); gap: 40px; }
+    .menu-grid { display: grid; grid-template-columns: 1fr; gap: 30px; }
+    @media (min-width: 640px) {
+      .menu-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    }
+    @media (min-width: 1024px) {
+      /* Lock to exactly 4 columns so all Popular Items sit in a single row on desktop */
+      .menu-grid { grid-template-columns: repeat(4, 1fr); gap: 20px; }
+      .image-container img { height: 170px; }
+      .card-content { padding: 18px; }
+      .card-content h3 { font-size: 1.2rem; margin-bottom: 7px; }
+      .card-content p  { font-size: 0.82rem; line-height: 1.45; }
+      .price-row { margin-top: 16px; }
+      .price { font-size: 1.15rem; }
+      .order-btn { padding: 9px 16px; font-size: 0.82rem; }
+    }
     .menu-card {
       background: var(--card); border-radius: 25px; overflow: hidden;
       transition: 0.4s; position: relative; border: 1px solid var(--border-card);
