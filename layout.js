@@ -43,12 +43,12 @@ function injectNavbar(activePage) {
   const nav = document.createElement('nav');
   nav.className = 'navbar';
   nav.innerHTML = `
-    <a href="index.html" class="nav-logo">
+    <a href="./" class="nav-logo">
       <img src="assets/logo.png" alt="WokUp Logo">
       <span>WokUp</span>
     </a>
     <ul class="nav-links">
-      <li><a href="index.html"    ${activePage==='home'   ?'class="active"':''}>Home</a></li>
+      <li><a href="./"    ${activePage==='home'   ?'class="active"':''}>Home</a></li>
       <li><a href="menu.html"     ${activePage==='menu'   ?'class="active"':''}>Full Menu</a></li>
       <li><a href="gallery.html"  ${activePage==='gallery'?'class="active"':''}>Gallery</a></li>
       <li><a href="about.html"    ${activePage==='about'  ?'class="active"':''}>About Us</a></li>
@@ -73,7 +73,7 @@ function injectNavbar(activePage) {
   mobileNav.className = 'mobile-nav';
   mobileNav.id = 'mobile-nav';
   mobileNav.innerHTML = `
-    <a href="index.html"   ${activePage==='home'   ?'class="active"':''}>Home</a>
+    <a href="./"   ${activePage==='home'   ?'class="active"':''}>Home</a>
     <a href="menu.html"    ${activePage==='menu'   ?'class="active"':''}>Full Menu</a>
     <a href="gallery.html" ${activePage==='gallery'?'class="active"':''}>Gallery</a>
     <a href="about.html"   ${activePage==='about'  ?'class="active"':''}>About Us</a>
@@ -129,7 +129,7 @@ function injectFooter() {
       <div class="footer-col">
         <h4>Navigate</h4>
         <ul>
-          <li><a href="index.html">Home</a></li>
+          <li><a href="./">Home</a></li>
           <li><a href="menu.html">Full Menu</a></li>
           <li><a href="gallery.html">Gallery</a></li>
           <li><a href="about.html">About Us</a></li>
