@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://wokup.github.io/sitemap.xml

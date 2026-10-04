@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found — WokUp Chinese</title>
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="shared.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    body { padding-top: 70px; }
+    .not-found {
+      min-height: 70vh; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; text-align: center;
+      padding: 60px 20px;
+    }
+    .not-found h1 { font-size: 6rem; color: var(--yellow); margin-bottom: 10px; }
+    .not-found h2 { font-size: 1.5rem; color: var(--body-color); margin-bottom: 16px; }
+    .not-found p  { color: var(--text-dim); margin-bottom: 30px; max-width: 400px; }
+    .not-found-btns { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+  </style>
+</head>
+<body>
+  <div class="not-found">
+    <h1>404</h1>
+    <h2>This page doesn't exist</h2>
+    <p>The page you're looking for may have been moved or doesn't exist. Head back to the menu or the homepage.</p>
+    <div class="not-found-btns">
+      <a href="./" class="btn-orange">Go Home</a>
+      <a href="menu.html" class="btn-whatsapp"><i class="fas fa-utensils"></i> View Menu</a>
+    </div>
+  </div>
+  <script src="layout.js"></script>
+  <script>injectNavbar(''); injectFooter();</script>
+</body>
+</html>
